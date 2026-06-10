@@ -1,17 +1,44 @@
-// Color Variables
+// Theme Colors - Premium Gallery (Light)
+$body-bg-light: #fafaf9; // Warm minimalist white
+$text-color-light: #18181b; // Zinc 900
+$heading-color-light: #09090b; // Zinc 950
+$border-color-light: rgba(0, 0, 0, 0.08);
+$card-bg-light: #ffffff;
+
+// Theme Colors - Midnight Obsidian (Dark)
+$body-bg-dark: #09090b; // Zinc 950
+$text-color-dark-mode: #a1a1aa; // Zinc 400
+$heading-color-dark: #fafafa; // Zinc 50
+$border-color-dark: rgba(255, 255, 255, 0.08);
+$card-bg-dark: #18181b; // Zinc 900
+
+// Signature Brand
 $primary-color: #0ea5e9; // Electric Blue
-$secondary-color: #10b981; // Emerald Green (Terminal vibes)
-$text-color: #94a3b8; // Slate 400
-$text-color-dark: #f8fafc; // Slate 50
-$text-color-light: #64748b; // Slate 500
-$body-color: #020617; // Deepest Navy/Black
-$border-color: #1e293b; // Slate 800
+$secondary-color: #10b981; // Emerald
+$accent-color: #f43f5e; // Rose (for subtle highlights)
 $black: #000;
 $white: #fff;
-$gray: #0f172a; // Slate 900
 
-// Font Variables
+// Typography
 $primary-font: 'Inter', sans-serif;
 $secondary-font: 'Inter', sans-serif;
 $code-font: 'JetBrains Mono', monospace;
-$icon-font: 'themify';
+
+// Tracking (Inspired by afanwoubo.tech)
+$tracking-tighter: -0.05em;
+$tracking-tight: -0.025em;
+$tracking-normal: 0em;
+$tracking-wide: 0.025em;
+
+// Legacy Mappings for Compatibility
+$text-color: $text-color-light;
+$text-color-dark: $heading-color-light;
+$body-color: $body-bg-light;
+$border-color: $border-color-light;
+$gray: #6b7280;
+
+// Grid & Pattern
+$grid-color-light: rgba(0, 0, 0, 0.03);
+$grid-color-dark: rgba(255, 255, 255, 0.03);
+$dot-color-light: rgba(0, 0, 0, 0.1);
+$dot-color-dark: rgba(255, 255, 255, 0.1);

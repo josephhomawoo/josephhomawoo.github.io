@@ -1,0 +1,23 @@
+<div class="dock-wrapper">
+  <div class="dock glass">
+    <a href="{{ site.baseurl }}/" class="dock-item {% if page.url == '/' or page.url == '/index.html' %}active{% endif %}" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ t.labels.home }}">
+      <i class="ti-home"></i>
+    </a>
+    <a href="{{ site.baseurl }}/portfolio" class="dock-item {% if page.url contains '/portfolio' %}active{% endif %}" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ t.labels.portfolio_title }}">
+      <i class="ti-briefcase"></i>
+    </a>
+    <a href="{{ site.baseurl }}/blog" class="dock-item {% if page.url contains '/blog' %}active{% endif %}" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ t.labels.blog_title }}">
+      <i class="ti-pencil-alt"></i>
+    </a>
+    <a href="{{ site.baseurl }}/cv" class="dock-item {% if page.url contains '/cv' %}active{% endif %}" data-bs-toggle="tooltip" data-bs-placement="top" title="CV">
+      <i class="ti-id-badge"></i>
+    </a>
+    <div class="dock-divider"></div>
+    <a href="{{ site.baseurl }}/contact" class="dock-item" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ t.labels.contact_title }}">
+      <i class="ti-email"></i>
+    </a>
+    <button class="dock-item border-0 bg-transparent" id="dock-dark-mode-toggle" data-bs-toggle="tooltip" data-bs-placement="top" title="Toggle Theme">
+      <i class="ti-shine"></i>
+    </button>
+  </div>
+</div>

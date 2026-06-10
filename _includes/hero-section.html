@@ -1,16 +1,16 @@
 <!-- hero area -->
-<section class="hero-area" id="parallax" style="background: transparent; padding: 200px 0 100px;">
+<section class="hero-area">
   <div class="container">
     <div class="row align-items-center">
-      <div class="col-lg-6" data-aos="fade-up">
-        <h1 class="text-white font-tertiary mb-4" style="font-size: 4rem; line-height: 1.1;">{{ t.hero.title }}</h1>
-        <p class="text-light mb-5 fs-5">{{ site.data.settings.description }}</p>
+      <div class="col-lg-7" data-aos="fade-up">
+        <h1 class="text-white mb-4">{{ t.hero.title }}</h1>
+        <p class="text-light mb-5 fs-5 opacity-75">{{ site.data.settings.description }}</p>
         <div class="d-flex gap-3">
-          <a href="#contact" class="btn btn-primary">{{ t.labels.hire_me | default: site.data.settings.labels.hire_me }}</a>
-          <a href="{{ site.baseurl }}/portfolio" class="btn btn-outline-light">{{ t.labels.view_work | default: site.data.settings.labels.view_work }}</a>
+          <a href="#contact" class="btn btn-primary px-4 py-2">{{ t.labels.hire_me | default: site.data.settings.labels.hire_me }}</a>
+          <a href="{{ site.baseurl }}/portfolio" class="btn btn-outline-light px-4 py-2">{{ t.labels.view_work | default: site.data.settings.labels.view_work }}</a>
         </div>
       </div>
-      <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+      <div class="col-lg-5" data-aos="fade-left" data-aos-delay="200">
         <div class="terminal-window">
           <div class="terminal-header">
             <div class="terminal-button red"></div>
@@ -37,9 +37,9 @@
   </div>
   
   <!-- social icon -->
-  <ul class="list-unstyled ms-5 mt-3 position-relative zindex-1 d-none d-lg-block">
+  <ul class="list-unstyled ms-5 mt-3 position-absolute bottom-0 start-0 mb-5 zindex-1 d-none d-lg-block">
     {% for social in site.data.settings.social %}
-    <li class="mb-3"><a class="text-white" href="{{ social.link }}"><i class="{{ social.icon }}"></i></a></li>
+    <li class="mb-3"><a class="text-white opacity-50 hover-opacity-100" href="{{ social.link }}"><i class="{{ social.icon }}"></i></a></li>
     {% endfor %}
   </ul>
   <!-- /social icon -->

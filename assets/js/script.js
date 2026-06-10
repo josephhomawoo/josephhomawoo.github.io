@@ -95,7 +95,9 @@
     // Dark Mode Toggle Logic
     const htmlElement = document.documentElement;
     const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const dockDarkModeToggle = document.getElementById('dock-dark-mode-toggle');
     const darkModeIcon = document.getElementById('dark-mode-icon');
+    const dockDarkModeIcon = dockDarkModeToggle ? dockDarkModeToggle.querySelector('i') : null;
 
     const getStoredTheme = () => localStorage.getItem('theme');
     const setStoredTheme = theme => localStorage.setItem('theme', theme);
@@ -115,10 +117,18 @@
           darkModeIcon.classList.replace('ti-shine', 'ti-light-bulb');
           darkModeIcon.classList.add('text-warning');
         }
+        if (dockDarkModeIcon) {
+          dockDarkModeIcon.classList.replace('ti-shine', 'ti-light-bulb');
+          dockDarkModeIcon.classList.add('text-warning');
+        }
       } else {
         if (darkModeIcon) {
           darkModeIcon.classList.replace('ti-light-bulb', 'ti-shine');
           darkModeIcon.classList.remove('text-warning');
+        }
+        if (dockDarkModeIcon) {
+          dockDarkModeIcon.classList.replace('ti-light-bulb', 'ti-shine');
+          dockDarkModeIcon.classList.remove('text-warning');
         }
       }
     };
@@ -126,14 +136,25 @@
     // Initialize theme
     setTheme(getPreferredTheme());
 
+    const toggleTheme = () => {
+      const currentTheme = htmlElement.getAttribute('data-bs-theme') || 'dark';
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      setTheme(newTheme);
+      setStoredTheme(newTheme);
+    };
+
     if (darkModeToggle) {
-      darkModeToggle.addEventListener('click', () => {
-        const currentTheme = htmlElement.getAttribute('data-bs-theme') || 'dark';
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        setTheme(newTheme);
-        setStoredTheme(newTheme);
-      });
+      darkModeToggle.addEventListener('click', toggleTheme);
     }
+    if (dockDarkModeToggle) {
+      dockDarkModeToggle.addEventListener('click', toggleTheme);
+    }
+
+    // Initialize Tooltips
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
   });
   /* ########################################### /Terminal Typing Effect ############################################## */
 
