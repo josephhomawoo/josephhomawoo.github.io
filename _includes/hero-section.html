@@ -1,41 +1,43 @@
 <!-- hero area -->
-<section class="hero-area bg-primary" id="parallax">
+<section class="hero-area" id="parallax" style="background: transparent; padding: 200px 0 100px;">
   <div class="container">
-    <div class="row">
-      <div class="col-lg-11 mx-auto">
-        <h1 class="text-white font-tertiary">{{ site.data.settings.hero.hero-title }}</h1>
+    <div class="row align-items-center">
+      <div class="col-lg-6" data-aos="fade-up">
+        <h1 class="text-white font-tertiary mb-4" style="font-size: 4rem; line-height: 1.1;">{{ site.data.settings.hero.hero-title }}</h1>
+        <p class="text-light mb-5 fs-5">{{ site.data.settings.description }}</p>
+        <div class="d-flex gap-3">
+          <a href="#contact" class="btn btn-primary">Hire Me</a>
+          <a href="{{ site.baseurl }}/portfolio" class="btn btn-outline-light">View Work</a>
+        </div>
+      </div>
+      <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <div class="terminal-button red"></div>
+            <div class="terminal-button yellow"></div>
+            <div class="terminal-button green"></div>
+            <div class="ms-2 text-secondary small">bash — 80x24</div>
+          </div>
+          <div class="terminal-body" id="terminal-body" data-command="{{ site.data.settings.terminal_command }}">
+            <div class="command-line">
+              <span class="command" id="typed-command"></span>
+            </div>
+            <div class="output" id="terminal-output" style="display: none;">
+              <br>
+              <span class="text-success">✔</span> Developer profile loaded<br>
+              <span class="text-info">ℹ</span> Status: Open for new projects<br>
+              <span class="text-warning">⚠</span> Mood: High caffeine levels detected<br>
+              <br>
+              <span class="text-primary">></span> Skills: React, Symfony, Flutter...
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <div class="layer-bg w-100">
-    <img class="img-fluid w-100" src="{{ site.baseurl }}/assets/images/illustrations/leaf-bg.png" alt="bg-shape">
-  </div>
-  <div class="layer" id="l2">
-    <img src="{{ site.baseurl }}/assets/images/illustrations/dots-cyan.png" alt="bg-shape">
-  </div>
-  <div class="layer" id="l3">
-    <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-orange.png" alt="bg-shape">
-  </div>
-  <div class="layer" id="l4">
-    <img src="{{ site.baseurl }}/assets/images/illustrations/dots-orange.png" alt="bg-shape">
-  </div>
-  <div class="layer" id="l5">
-    <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-yellow.png" alt="bg-shape">
-  </div>
-  <div class="layer" id="l6">
-    <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-cyan.png" alt="bg-shape">
-  </div>
-  <div class="layer" id="l7">
-    <img src="{{ site.baseurl }}/assets/images/illustrations/dots-group-orange.png" alt="bg-shape">
-  </div>
-  <div class="layer" id="l8">
-    <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-pink-round.png" alt="bg-shape">
-  </div>
-  <div class="layer" id="l9">
-    <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-cyan-2.png" alt="bg-shape">
-  </div>
+  
   <!-- social icon -->
-  <ul class="list-unstyled ml-5 mt-3 position-relative zindex-1">
+  <ul class="list-unstyled ms-5 mt-3 position-relative zindex-1 d-none d-lg-block">
     {% for social in site.data.settings.social %}
     <li class="mb-3"><a class="text-white" href="{{ social.link }}"><i class="{{ social.icon }}"></i></a></li>
     {% endfor %}

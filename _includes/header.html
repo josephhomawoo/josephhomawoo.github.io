@@ -7,21 +7,26 @@
         <h3 class="text-white font-tertiary">{{site.data.settings.title}}</h3>
       {% endif %}
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navigation"
       aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse text-center" id="navigation">
-      <ul class="navbar-nav ml-auto">
+      <ul class="navbar-nav ms-auto align-items-center">
         <li class="nav-item active">
           <a class="nav-link" href="{{ site.baseurl }}/">Home</a>
         </li>
         {% for link in site.data.settings.menu %}
-          <li class="nav-item {{ class }}">
+          <li class="nav-item">
             <a class="nav-link" href="{{ link.link }}">{{ link.name }}</a>
           </li>
         {% endfor %}
+        <li class="nav-item ms-lg-3">
+          <button class="btn btn-sm btn-outline-light border-0" id="dark-mode-toggle" aria-label="Toggle dark mode">
+            <i class="ti-shine" id="dark-mode-icon"></i>
+          </button>
+        </li>
       </ul>
     </div>
   </nav>

@@ -1,10 +1,61 @@
+@use "sass:color";
+
 body {
   background-color: $body-color;
+  color: $text-color;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  position: relative;
+  
+  &::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: 
+      radial-gradient(at 0% 0%, rgba($primary-color, 0.05) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba($secondary-color, 0.05) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba($primary-color, 0.03) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, rgba($secondary-color, 0.03) 0px, transparent 50%);
+    filter: blur(80px);
+  }
+}
+
+.glass {
+  background: rgba(15, 23, 42, 0.6) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+[data-bs-theme="dark"] {
+  .glass {
+    background: rgba(2, 6, 23, 0.8) !important;
+  }
+  body {
+    background-color: #020617 !important;
+    color: #94a3b8 !important;
+  }
+  .bg-white {
+    background-color: #0f172a !important;
+  }
+  .bg-light {
+    background-color: #1e293b !important;
+  }
+  .text-dark {
+    color: #f8fafc !important;
+  }
+  .card {
+    background-color: rgba(15, 23, 42, 0.4) !important;
+    border-color: rgba(255, 255, 255, 0.05) !important;
+  }
 }
 
 ::selection {
-  background: lighten($color: $primary-color, $amount: 10);
+  background: rgba($primary-color, 0.3);
   color: $white;
 }
 
@@ -16,7 +67,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: $white;
+  background-color: $body-color;
   z-index: 999;
   display: flex;
   align-items: center;
@@ -66,12 +117,29 @@ a:hover {
 }
 
 .section {
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding-top: 100px;
+  padding-bottom: 100px;
 
   &-title {
     margin-bottom: 80px;
-    font-family: $secondary-font;
+    font-family: $primary-font;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: $text-color-dark;
+    position: relative;
+    display: inline-block;
+    
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -15px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, $primary-color, $secondary-color);
+      border-radius: 2px;
+    }
   }
 }
 
@@ -94,7 +162,7 @@ a:hover {
     top: 0;
     left: 0;
     background: $black;
-    opacity: .5;
+    opacity: .7;
   }
 }
 
@@ -183,19 +251,19 @@ a:hover {
 }
 
 .font-secondary {
-  font-family: $secondary-font !important;
+  font-family: $primary-font !important;
 }
 
 .font-tertiary {
-  font-family: $secondary-font !important;
+  font-family: $primary-font !important;
 }
 
 .shadow {
-  box-shadow: 0px 18px 39.1px 6.9px rgba(224, 241, 255, 0.34) !important;
+  box-shadow: 0px 18px 39.1px 6.9px rgba(0, 0, 0, 0.4) !important;
 }
 
 .bg-dark{
-  background-color: #222222 !important;
+  background-color: #020617 !important;
 }
 
 /* icon */
@@ -211,7 +279,7 @@ a:hover {
 }
 
 .icon-light {
-  color: #c8d5ef;
+  color: #1e293b;
 }
 
 /* /icon */
@@ -225,14 +293,14 @@ a:hover {
     margin: 2px;
     &.slick-active{
       button{
-        background: $white;
+        background: $primary-color;
         width: 25px;
       }
     }
     button{
       height: 6px;
       width: 12px;
-      background: rgba($color: $white, $alpha: .5);
+      background: rgba($color: $white, $alpha: .2);
       color: transparent;
       border-radius: 10px;
       overflow: hidden;
@@ -245,10 +313,12 @@ a:hover {
 
 /* form */
 .form-control{
+  background: transparent !important;
   border: 0;
   border-radius: 0;
   border-bottom: 1px solid $border-color;
   height: 60px;
+  color: $white !important;
   &:focus{
     border-color: $primary-color;
     outline: 0;
@@ -264,11 +334,242 @@ textarea.form-control{
 /* card */
 .card{
   border: 0;
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  transition: .4s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  &:hover {
+    transform: translateY(-10px);
+    border-color: rgba($primary-color, 0.3);
+    background: rgba(15, 23, 42, 0.6);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  }
+
   &-header{
     border: 0;
+    background: transparent;
   }
   &-footer{
     border: 0;
+    background: transparent;
   }
 }
-/* /card */
+
+/* Terminal */
+.terminal-window {
+  background: rgba(13, 17, 23, 0.9) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  font-family: $code-font;
+  margin-top: 50px;
+}
+
+.terminal-header {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.terminal-button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+  &.red { background: #ff5f56; }
+  &.yellow { background: #ffbd2e; }
+  &.green { background: #27c93f; }
+}
+
+.terminal-body {
+  padding: 20px;
+  color: #e6edf3;
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 200px;
+  
+  .command {
+    color: $secondary-color;
+    &::before {
+      content: "joseph@backend-king:~$ ";
+      color: #7d8590;
+    }
+  }
+  
+  .output {
+    margin-bottom: 15px;
+  }
+  
+  .typing::after {
+    content: "|";
+    animation: blink 1s infinite;
+  }
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* Professional Consultant Portfolio */
+.enterprise-card {
+  background: rgba(15, 23, 42, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  
+  &:hover {
+    border-color: rgba($primary-color, 0.4);
+    background: rgba(15, 23, 42, 0.6);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    transform: translateY(-8px);
+    
+    .project-img img {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.project-img {
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.6s ease;
+  }
+  
+  .project-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(2, 6, 23, 0.8), transparent);
+    padding: 20px;
+    display: flex;
+    align-items: flex-end;
+  }
+}
+
+.filter-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+  
+  .btn-filter {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #94a3b8;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: 0.3s;
+    cursor: pointer;
+    
+    input { display: none; }
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: $white;
+    }
+    
+    &.active {
+      background: $primary-color;
+      border-color: $primary-color;
+      color: $white;
+      box-shadow: 0 4px 15px rgba($primary-color, 0.3);
+    }
+  }
+}
+
+.consultant-role {
+  color: #10b981;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Bento Grid */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-auto-rows: 200px;
+  gap: 20px;
+  
+  .bento-item {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+    &.large {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+    
+    &.wide {
+      grid-column: span 2;
+    }
+    
+    &.tall {
+      grid-row: span 2;
+    }
+    
+    i {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      transition: .3s ease;
+    }
+    
+    &:hover i {
+      transform: scale(1.2);
+    }
+  }
+}
+
+.glow-on-hover {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, $primary-color, $secondary-color, $primary-color);
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 22px;
+  }
+  
+  &:hover::before {
+    opacity: 1;
+  }
+}
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}

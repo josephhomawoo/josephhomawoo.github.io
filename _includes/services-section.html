@@ -7,12 +7,14 @@
         <h2 class="section-title">{{ site.data.settings.services-title }}</h2>
       </div>
       {% for service in site.data.settings.services %}
-      <div class="col-md-4 mb-4 mb-md-0">
-        <div class="card hover-shadow shadow">
-          <div class="card-body {% if service.active %}active-bg-primary{% endif %} text-center px-4 py-5">
-            <i class="{{ service.icon }} icon mb-5 d-inline-block"></i>
-            <h4 class="mb-4">{{ service.name }}</h4>
-            <p>{{ service.description }}</p>
+      <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="{{ forloop.index0 | times: 100 }}">
+        <div class="card h-100 glow-on-hover">
+          <div class="card-body text-center px-4 py-5">
+            <div class="icon-bg glass rounded-circle mx-auto mb-4 d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+              <i class="{{ service.icon }} text-primary" style="font-size: 2rem;"></i>
+            </div>
+            <h4 class="text-white mb-3">{{ service.name }}</h4>
+            <p class="text-color-dark">{{ service.description }}</p>
           </div>
         </div>
       </div>

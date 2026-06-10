@@ -6,27 +6,63 @@ title: Portfolio
 <section class="section">
   <div class="container">
     <div class="row mb-5">
-      <div class="col-12">
-        <div class="btn-group btn-group-toggle justify-content-center d-flex" data-toggle="buttons">
-          <label class="btn btn-sm btn-primary active">
-            <input type="radio" name="shuffle-filter" value="all" checked="checked" />All
+      <div class="col-lg-8 mx-auto text-center">
+        <h2 class="section-title mb-3" data-aos="fade-up">Enterprise Solutions</h2>
+        <p class="text-color-dark mb-5" data-aos="fade-up" data-aos-delay="100">Expert backend systems and architectural consulting for international organizations and global enterprises.</p>
+        
+        <div class="glass p-5 rounded-lg text-start mb-5" style="border-left: 4px solid $primary-color !important;" data-aos="fade-up" data-aos-delay="200">
+          <div class="row align-items-center">
+            <div class="col-md-2 text-center mb-4 mb-md-0">
+              <i class="ti-light-bulb text-primary" style="font-size: 3rem;"></i>
+            </div>
+            <div class="col-md-10">
+              <h4 class="text-white mb-3">Beyond Delivery: Continuous R&D</h4>
+              <p class="small text-color-dark mb-0" style="line-height: 1.8;">
+                In the fast-evolving landscape of backend engineering, my commitment to excellence extends beyond client deliverables. I dedicate significant time to <strong>Experimental R&D</strong>—exploring distributed systems, advanced cryptography, and emerging language paradigms. This culture of constant learning ensures that the solutions I provide are not just functional, but future-proof and architecturally superior.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="filter-container" data-aos="fade-up" data-aos-delay="300">
+          <label class="btn-filter active">
+            <input type="radio" name="shuffle-filter" value="all" checked="checked" /> ALL PROJECTS
           </label>
           {% for label in site.data.settings.portfolio-label %}
-          <label class="btn btn-sm btn-primary">
-            <input type="radio" name="shuffle-filter" value="{{ label.type }}" />{{ label.title }}
+          <label class="btn-filter">
+            <input type="radio" name="shuffle-filter" value="{{ label.type }}" /> {{ label.title | upcase }}
           </label>
           {% endfor %}
         </div>
       </div>
     </div>
-    <div class="row shuffle-wrapper">
+    
+    <div class="row shuffle-wrapper g-4">
       {% for item in site.data.settings.portfolio-items %}
-      <div class="col-lg-4 col-6 mb-4 shuffle-item" data-groups="[{% for portfolio in item.portfolio-type %}{% if forloop.first == true %}{% else %},{% endif %}&quot;{{ portfolio.type }}&quot;{% endfor %}]">
-        <div class="position-relative rounded hover-wrapper">
-          <img src="{{ site.baseurl }}/{{ item.image }}" alt="portfolio-image" class="img-fluid rounded w-100 d-block">
-          <div class="hover-overlay">
-            <div class="hover-content">
-              <a class="btn btn-light btn-sm" href="{{ item.url }}">view project</a>
+      <div class="col-lg-4 col-md-6 shuffle-item" data-groups="[{% for portfolio in item.portfolio-type %}{% if forloop.first == true %}{% else %},{% endif %}&quot;{{ portfolio.type }}&quot;{% endfor %}]" 
+           data-aos="fade-up" data-aos-delay="{{ forloop.index0 | times: 100 }}">
+        <div class="enterprise-card">
+          <div class="project-img">
+            <img src="{{ site.baseurl }}/{{ item.image }}" alt="{{ item.name }}">
+            <div class="project-overlay">
+              <span class="badge glass text-white small font-monospace">REF: {{ forloop.index | prepend: 'PROJ-' }}</span>
+            </div>
+          </div>
+          
+          <div class="card-body p-4">
+            <span class="consultant-role mb-2 d-block">Lead Backend Consultant</span>
+            <h4 class="text-white mb-3">{{ item.name | default: 'Infrastructure Solution' }}</h4>
+            <p class="small text-color-dark mb-4" style="line-height: 1.6;">{{ item.description | default: 'Scalable backend infrastructure designed for high-availability systems. Implementation of robust data protocols and modular architecture to support enterprise operations.' }}</p>
+            
+            <div class="d-flex flex-wrap gap-2 mb-4">
+              {% for type in item.portfolio-type %}
+              <span class="ledger-tech-badge">{{ type.type | replace: ' developement', '' }}</span>
+              {% endfor %}
+            </div>
+            
+            <div class="mt-auto pt-3 border-top border-dark d-flex justify-content-between align-items-center">
+              <span class="text-secondary small font-monospace">NGO SECTOR</span>
+              <a href="{{ item.url }}" class="text-primary font-weight-bold small">VIEW PROJECT <i class="ti-arrow-right ms-1"></i></a>
             </div>
           </div>
         </div>
@@ -38,7 +74,7 @@ title: Portfolio
 <!-- /portfolio -->
 
 <!-- clients -->
-<section class="section bg-light">
+<section class="section">
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">

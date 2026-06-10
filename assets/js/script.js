@@ -31,62 +31,111 @@
     });
   });
 
-  /* ########################################### hero parallax ############################################## */
-  window.onload = function () {
-    var parallaxBox = document.getElementById("parallax");
-    var /* c1left = document.getElementById('l1').offsetLeft,
-                       c1top = document.getElementById('l1').offsetTop, */
-      c2left = document.getElementById("l2").offsetLeft,
-      c2top = document.getElementById("l2").offsetTop,
-      c3left = document.getElementById("l3").offsetLeft,
-      c3top = document.getElementById("l3").offsetTop,
-      c4left = document.getElementById("l4").offsetLeft,
-      c4top = document.getElementById("l4").offsetTop,
-      c5left = document.getElementById("l5").offsetLeft,
-      c5top = document.getElementById("l5").offsetTop,
-      c6left = document.getElementById("l6").offsetLeft,
-      c6top = document.getElementById("l6").offsetTop,
-      c7left = document.getElementById("l7").offsetLeft,
-      c7top = document.getElementById("l7").offsetTop,
-      c8left = document.getElementById("l8").offsetLeft,
-      c8top = document.getElementById("l8").offsetTop,
-      c9left = document.getElementById("l9").offsetLeft,
-      c9top = document.getElementById("l9").offsetTop;
+  /* ########################################### Terminal Typing Effect ############################################## */
+  function typeCommand() {
+    const terminalBody = document.getElementById("terminal-body");
+    const commandText = terminalBody ? terminalBody.getAttribute("data-command") : "joseph --status 'coding'";
+    const commandElement = document.getElementById("typed-command");
+    const outputElement = document.getElementById("terminal-output");
+    
+    if (!commandElement) return;
 
-    parallaxBox.onmousemove = function (event) {
-      event = event || window.event;
-      var x = event.clientX - parallaxBox.offsetLeft,
-        y = event.clientY - parallaxBox.offsetTop;
-
-      /*  mouseParallax('l1', c1left, c1top, x, y, 5); */
-      mouseParallax("l2", c2left, c2top, x, y, 25);
-      mouseParallax("l3", c3left, c3top, x, y, 20);
-      mouseParallax("l4", c4left, c4top, x, y, 35);
-      mouseParallax("l5", c5left, c5top, x, y, 30);
-      mouseParallax("l6", c6left, c6top, x, y, 45);
-      mouseParallax("l7", c7left, c7top, x, y, 30);
-      mouseParallax("l8", c8left, c8top, x, y, 25);
-      mouseParallax("l9", c9left, c9top, x, y, 40);
-    };
-  };
-
-  function mouseParallax(id, left, top, mouseX, mouseY, speed) {
-    var obj = document.getElementById(id);
-    var parentObj = obj.parentNode,
-      containerWidth = parseInt(parentObj.offsetWidth),
-      containerHeight = parseInt(parentObj.offsetHeight);
-    obj.style.left =
-      left -
-      ((mouseX - (parseInt(obj.offsetWidth) / 2 + left)) / containerWidth) *
-        speed +
-      "px";
-    obj.style.top =
-      top -
-      ((mouseY - (parseInt(obj.offsetHeight) / 2 + top)) / containerHeight) *
-        speed +
-      "px";
+    let i = 0;
+    commandElement.classList.add("typing");
+    
+    function type() {
+      if (i < commandText.length) {
+        commandElement.textContent += commandText.charAt(i);
+        i++;
+        setTimeout(type, 50 + Math.random() * 50);
+      } else {
+        commandElement.classList.remove("typing");
+        setTimeout(() => {
+          if (outputElement) {
+            outputElement.style.display = "block";
+            outputElement.style.opacity = 0;
+            let opacity = 0;
+            const fadeIn = setInterval(() => {
+              if (opacity >= 1) clearInterval(fadeIn);
+              outputElement.style.opacity = opacity;
+              opacity += 0.1;
+            }, 50);
+          }
+        }, 500);
+      }
+    }
+    
+    setTimeout(type, 1000);
   }
-  /* ########################################### /hero parallax ############################################## */
+
+  $(document).ready(function() {
+    typeCommand();
+    
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true
+    });
+
+    // Magnetic Button Effect
+    $('.btn').on('mousemove', function(e) {
+      const btn = $(this);
+      const rect = this.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      
+      btn.css('transform', `translate(${x * 0.3}px, ${y * 0.3}px)`);
+    });
+
+    $('.btn').on('mouseleave', function() {
+      $(this).css('transform', 'translate(0, 0)');
+    });
+
+    // Dark Mode Toggle Logic
+    const htmlElement = document.documentElement;
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const darkModeIcon = document.getElementById('dark-mode-icon');
+
+    const getStoredTheme = () => localStorage.getItem('theme');
+    const setStoredTheme = theme => localStorage.setItem('theme', theme);
+
+    const getPreferredTheme = () => {
+      const storedTheme = getStoredTheme();
+      if (storedTheme) {
+        return storedTheme;
+      }
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    };
+
+    const setTheme = theme => {
+      htmlElement.setAttribute('data-bs-theme', theme);
+      if (theme === 'dark') {
+        if (darkModeIcon) {
+          darkModeIcon.classList.replace('ti-shine', 'ti-light-bulb');
+          darkModeIcon.classList.add('text-warning');
+        }
+      } else {
+        if (darkModeIcon) {
+          darkModeIcon.classList.replace('ti-light-bulb', 'ti-shine');
+          darkModeIcon.classList.remove('text-warning');
+        }
+      }
+    };
+
+    // Initialize theme
+    setTheme(getPreferredTheme());
+
+    if (darkModeToggle) {
+      darkModeToggle.addEventListener('click', () => {
+        const currentTheme = htmlElement.getAttribute('data-bs-theme') || 'dark';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        setTheme(newTheme);
+        setStoredTheme(newTheme);
+      });
+    }
+  });
+  /* ########################################### /Terminal Typing Effect ############################################## */
 
   // testimonial-slider
   $(".testimonial-slider").slick({
@@ -151,6 +200,10 @@
     var input = evt.currentTarget;
     if (input.checked) {
       myShuffle.filter(input.value);
+      // Update active class on labels
+      jQuery('.btn-filter').removeClass('active');
+      jQuery(input).closest('.btn-filter').addClass('active');
     }
   });
+
 })(jQuery);

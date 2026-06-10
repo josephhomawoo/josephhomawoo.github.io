@@ -8,13 +8,13 @@
       </div>
       {% for education in site.data.settings.education %}
       <div class="col-lg-6 col-md-6 mb-80">
-        <div class="d-flex">
-          <div class="mr-lg-5 mr-3">
-            <i class="ti-medall icon icon-light icon-bg bg-white shadow rounded-circle d-block"></i>
+        <div class="d-flex align-items-center">
+          <div class="me-lg-5 me-3">
+            <i class="ti-medall icon icon-bg glass shadow rounded-circle d-block text-primary"></i>
           </div>
           <div>
-            <p class="text-dark mb-1">{{ education.date }}</p>
-            <h4>{{ education.name }}</h4>
+            <p class="text-color-dark mb-1 font-weight-bold">{{ education.date }}</p>
+            <h4 class="text-white">{{ education.name }}</h4>
             <p class="mb-0 text-light">{{ education.organization }}</p>
           </div>
         </div>
@@ -22,8 +22,6 @@
       {% endfor %}
     </div>
   </div>
-  <!-- bg image -->
-  <img class="img-fluid edu-bg-image w-100" src="{{ site.baseurl }}/assets/images/backgrounds/education-bg.png" alt="bg-image">
 </section>
 <!-- /education -->
 {% endif %}

@@ -1,28 +1,48 @@
 .navigation{
-  padding: 40px 130px;
+  padding: 20px 130px;
   transition: .3s ease;
+  background: transparent;
+
   &.nav-bg {
-    background-color: $primary-color;
-    padding: 15px 100px;
+    background: rgba(2, 6, 23, 0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 10px 100px;
     @include desktop {
-      padding: 15px 20px;
+      padding: 10px 20px;
     }
   }
   @include desktop {
-    padding: 20px;
-    background: $primary-color;
+    padding: 15px 20px;
+    background: rgba(2, 6, 23, 0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
   }
+}
+
+[data-bs-theme="dark"] .navigation.nav-bg {
+  background: rgba(2, 6, 23, 0.8);
 }
 
 .navbar{
   .nav-item{
     .nav-link{
-      font-family: $secondary-font;
-      text-transform: uppercase;
-      padding: 15px;
+      font-family: $primary-font;
+      font-weight: 500;
+      text-transform: none;
+      letter-spacing: 0.5px;
+      padding: 10px 20px;
+      color: rgba(255, 255, 255, 0.7) !important;
+      transition: .2s ease;
+      
+      &:hover {
+        color: $primary-color !important;
+      }
     }
-    &.active{
-      font-weight: bold;
+    &.active .nav-link {
+      color: $primary-color !important;
+      font-weight: 600;
     }
   }
 }

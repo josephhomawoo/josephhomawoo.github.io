@@ -1,5 +1,14 @@
 ---
 #-------------------------------
+# Professional Identity & Stats
+github_username: novenopatch
+terminal_command: "joseph --role 'King of Backend' --stack 'Symfony, Python, Docker, AWS'"
+stats:
+  years_exp: "5+"
+  systems_built: "50+"
+  quote: "Beyond feature delivery, I focus on architectural integrity and system longevity."
+
+#-------------------------------
 # General Site Settings
 
 title: HKAJ
@@ -37,7 +46,7 @@ disqus-identifier: jerrykel
 # Hero Section
 
 hero:
-  hero-title: Hi! I’m <br> Joseph HOMAWOO <br> Developer back-end and UX designer From LOME
+  hero-title: KING OF BACKEND <br> System Architect <br> & UX Strategist
 
 social:
   - { icon: "ti-facebook", link: "https://web.facebook.com/fernando.vilarios" }
@@ -58,26 +67,26 @@ blurb-btn-name: know more
 # Work Process Section
 work-process:
   - title: "Research and Plan"
-    icon: "assets/images/icons/plan.png"
+    icon: "assets/images/icons/plan.webp"
     content: "We collect information to understand your needs and your expectations and then we define the strategy and plan"
   - title: "Design and Develop"
-    icon: "assets/images/icons/design.png"
+    icon: "assets/images/icons/design.webp"
     content: "We oofer different prototypes designer by our designers and we develop your choice"
 
   - title: "Deliver"
-    icon: "assets/images/icons/print.png"
+    icon: "assets/images/icons/print.webp"
     content: "We are improving,we test then we deliver"
 
 # My Team Section
 team:
   - title: "Joseph HOMAWOO"
-    image: "assets/images/team/member-1.jpg"
+    image: "assets/images/team/member-1.webp"
     designation: "Back-End Developer && UX Designer"
     linkedin: ""
 
 
  # - title: "John Doe"
- #   image: "assets/images/team/member-3.png"
+ #   image: "assets/images/team/member-3.webp"
  #   designation: "Designer and Front-End Developer"
 
 #-------------------------------
@@ -102,28 +111,28 @@ experience-title: Experience
 experience:
   - {
       name: Technician Software,
-      icon: "icon-1.png",
+      icon: "icon-1.webp",
       date: "JAN 2020 - Dec 2020",
       organization: "SIMPLEMENT VOTRE",
       url: "",
     }
   - {
       name: Junior UX & UI Designer,
-      icon: "icon-2.png",
+      icon: "icon-2.webp",
       date: "JAN 2021 - Feb 2021",
       organization: "SANAM-Group",
       url: "https://www.sanam-group.com",
     }
   - {
       name: Back-End & Mobile Developer,
-      icon: "icon-2.png",
+      icon: "icon-2.webp",
       date: "Aug 2021 - Present",
       organization: "SANAM-Group",
       url: "https://www.sanam-group.com",
     }
   - {
       name: Developer full stack ,
-      icon: "icon-1.png",
+      icon: "icon-1.webp",
       date: "Dec 2022 - Jan 2023",
       organization: "lifeef",
       url: "https://lifeef-tg.com",
@@ -151,25 +160,25 @@ education:
 #-------------------------------
 # Services Section
 
-services-title: Services
+services-title: Technical Expertise
 services:
   - {
-      name: UI Design,
-      icon: ti-palette,
-      description: "We give life to your graphic ideas.",
-      active: false, # Add true to select section
-    }
-  - {
-      name: Software Engineering,
+      name: Core System Architecture,
       icon: ti-panel,
-      description: "I conceive and keeps us all type of computer application",
-      active: true, # Add true to select section
+      description: "Designing robust, scalable backend systems with optimized performance and modularity.",
+      active: true,
     }
   - {
-      name: UX Design,
+      name: API Design & Integration,
       icon: ti-vector,
-      description: "We create graphic interfaces and meet your needs in the most optimal way along modern code but also your identity.",
-      active: false, # Add true to select section
+      description: "Building seamless communication layers using REST, GraphQL, and microservices patterns.",
+      active: false,
+    }
+  - {
+      name: Product UI/UX Strategy,
+      icon: ti-palette,
+      description: "Bridging complex logic with intuitive interfaces that meet user needs and business goals.",
+      active: false,
     }
   
 
@@ -178,19 +187,19 @@ services:
 
 # Portfolio Home Section
 portfolio-home-items:
-  - image: "assets/images/portfolio/signals.png"
+  - image: "assets/images/portfolio/signals.webp"
     url: "https://github.com/novenopatch/Signal-Apps"
 
-  - image: "assets/images/portfolio/safe.png"
+  - image: "assets/images/portfolio/safe.webp"
     url: "https://github.com/novenopatch/MyPasswordManager"
 
-  - image: "assets/images/portfolio/snake.png"
+  - image: "assets/images/portfolio/snake.webp"
     url: "https://github.com/novenopatch/pygame-test"
 
-  - image: "assets/images/portfolio/space.png"
+  - image: "assets/images/portfolio/space.webp"
     url: "https://github.com/novenopatch/pygame-test"
 
-  - image: "assets/images/portfolio/superquiz.png"
+  - image: "assets/images/portfolio/superquiz.webp"
     url: "https://github.com/novenopatch/quizquiz"
 
 # Portfolio Page
@@ -203,52 +212,52 @@ portfolio-label:
   - { title: "ILLUSTRATION", type: "illustration" }
 
 portfolio-items:
-  - image: "assets/images/portfolio/signals.png"
+  - image: "assets/images/portfolio/signals.webp"
     url: "https://github.com/novenopatch/Signal-Apps"
     portfolio-type:
       - type: "Mobile developement"
       - type: "design"
 
-  - image: "assets/images/portfolio/safe.png"
+  - image: "assets/images/portfolio/safe.webp"
     url: "https://github.com/novenopatch/MyPasswordManager"
     portfolio-type:
       - type: "Mobile developement"
       - type: "design"
 
-  - image: "assets/images/portfolio/snake.png"
+  - image: "assets/images/portfolio/snake.webp"
     url: "https://github.com/novenopatch/pygame-test"
     portfolio-type:
       - type: "Game developement"
 
-  - image: "assets/images/portfolio/space.png"
+  - image: "assets/images/portfolio/space.webp"
     url: "https://github.com/novenopatch/pygame-test"
     portfolio-type:
       - type: "Game developement"
 
-  - image: "assets/images/portfolio/superquiz.png"
+  - image: "assets/images/portfolio/superquiz.webp"
     url: "https://github.com/novenopatch/quizquiz"
     portfolio-type:
       - type: "Mobile developement"
       - type: "Game developement"
       - type: "design"
 
-  - image: "assets/images/portfolio/java-c.png"
+  - image: "assets/images/portfolio/java-c.webp"
     url: "https://github.com/novenopatch/convertisseurTemp"
     portfolio-type:
       - type: "Desktop developement"
       - type: "design"
-  - image: "assets/images/portfolio/javafx.png"
+  - image: "assets/images/portfolio/javafx.webp"
     url: "https://github.com/novenopatch/safepasswordfx"
     portfolio-type:
       - type: "Desktop developement"
       - type: "design"
       - type: "illustration"
-  - image: "assets/images/portfolio/item-1.png"
+  - image: "assets/images/portfolio/item-1.webp"
     url: "#"
     portfolio-type:
       - type: "branding"
 
-  - image: "assets/images/portfolio/item-3.png"
+  - image: "assets/images/portfolio/item-3.webp"
     url: "#"
     portfolio-type:
       - type: "design"
@@ -262,7 +271,7 @@ portfolio-items:
 
 testimonial-items:
   - name: "Jesica Gomez"
-    image: "assets/images/testimonial/client-1.png"
+    image: "assets/images/testimonial/client-1.webp"
     designation: "CEO, Funder"
     content: "<strong>quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</strong> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
 
@@ -271,7 +280,7 @@ testimonial-items:
 # Client Slider Section
 
 client-slider-items:
-  - logo: "assets/images/clients-logo/sanam-logo.png"
+  - logo: "assets/images/clients-logo/sanam-logo.webp"
     url: "www.sanam-group.com"
 
 

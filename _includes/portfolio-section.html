@@ -2,20 +2,25 @@
 <!-- portfolio -->
 <section class="section">
   <div class="container">
-    <div class="row">
-      <div class="col-12 text-center">
-        <h2 class="section-title">Portfolio</h2>
+    <div class="row align-items-center mb-5">
+      <div class="col-md-8">
+        <h2 class="section-title mb-0">Enterprise Case Studies</h2>
+      </div>
+      <div class="col-md-4 text-md-end mt-3 mt-md-0">
+        <a href="{{ site.baseurl }}/portfolio" class="text-primary font-weight-bold">View Portfolio Ledger <i class="ti-arrow-right ms-2"></i></a>
       </div>
     </div>
-    <div class="row shuffle-wrapper">
+    <div class="row g-4">
       {% for item in site.data.settings.portfolio-home-items %}
-      <div class="col-lg-4 col-6 mb-4 shuffle-item">
-        <div class="position-relative rounded hover-wrapper">
-          <img src="{{ site.baseurl }}/{{ item.image }}" alt="portfolio-image" class="img-fluid rounded w-100 d-block">
-          <div class="hover-overlay">
-            <div class="hover-content">
-              <a class="btn btn-light btn-sm" href="{{ item.url }}">view project</a>
-            </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="enterprise-card">
+          <div class="project-img" style="height: 180px;">
+            <img src="{{ site.baseurl }}/{{ item.image }}" alt="{{ item.name }}">
+          </div>
+          <div class="card-body p-4">
+            <span class="consultant-role small mb-2 d-block">Lead Architect</span>
+            <h4 class="text-white mb-2">{{ item.name | default: 'Infrastructure Node' }}</h4>
+            <p class="small text-color-dark mb-0">High-performance backend modules for mission-critical operations.</p>
           </div>
         </div>
       </div>
