@@ -1,0 +1,27 @@
+labels:
+  home: "Home"
+  about: "About"
+  blog: "Blog"
+  portfolio: "Portfolio"
+  contact: "Contact"
+  cv: "CV"
+  read_more: "READ MORE"
+  back_to_blog: "Back to the bLog"
+  share: "SHARE_NODE"
+  min_read: "MIN READ"
+  all_systems: "ALL SYSTEMS"
+
+sections:
+  blog_title: "Technical Insights"
+  blog_subtitle: "EXPLORING SYSTEM ARCHITECTURE & BACKEND EXCELLENCE"
+  similar_stories_title: "Similar Stories"
+  comments_title: "Comments"
+  clients_title: "Strategic Partnerships"
+  about_title: "Mastering Complexity"
+
+about:
+  blurb: "I code and design beautifully simple things, and I love what I do."
+  btn_name: "know more"
+
+hero:
+  title: "KING OF BACKEND <br> System Architect <br> & UX Strategist"

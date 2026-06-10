@@ -1,4 +1,6 @@
 @use "sass:color";
+@use "variables" as *;
+@use "mixins" as *;
 
 body {
   background-color: $body-color;
@@ -188,6 +190,10 @@ a:hover {
 
 .text-color {
   color: $text-color;
+}
+
+.text-color-dark {
+  color: $text-color-dark !important;
 }
 
 .text-dark {

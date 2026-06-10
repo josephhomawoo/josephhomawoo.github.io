@@ -73,6 +73,7 @@ sections:
   cv_experience_title: "My Experience & Skills"
   similar_stories_title: "Similar Stories"
   comments_title: "Comments"
+  certifications_title: "Verified Credentials"
 
 #-------------------------------
 # Technical Lab Settings
@@ -108,20 +109,60 @@ about_page:
   mastery_content: "Constant research into modern patterns (Microservices, Hexagonal Architecture) to deliver industry-leading code."
 
 #-------------------------------
+# Certifications Section
+certifications_drive_url: "https://drive.google.com/drive/folders/1_-rKUnJPHHh6O8ynGo7AmoMQdcici0--?usp=sharing" # User should replace this
+certifications:
+  - name: "Symfony 5: Architecture & Backend"
+    issuer: "OpenClassrooms"
+    icon: "devicon-symfony-original colored"
+    date: "2023"
+  - name: "Advanced Python & Data Science"
+    issuer: "OpenClassrooms / Udemy"
+    icon: "devicon-python-plain colored"
+    date: "2024"
+  - name: "React Modern Frontend"
+    issuer: "OpenClassrooms"
+    icon: "devicon-react-original colored"
+    date: "2023"
+  - name: "Machine Learning & Big Data"
+    issuer: "OpenClassrooms"
+    icon: "devicon-apache-plain colored"
+    date: "2023"
+  - name: "Linux System Administration"
+    issuer: "OpenClassrooms / Udemy"
+    icon: "devicon-linux-plain colored"
+    date: "2023"
+  - name: "Java & Kotlin Development"
+    issuer: "OpenClassrooms"
+    icon: "devicon-java-plain colored"
+    date: "2023"
+  - name: "API REST & Web Services"
+    issuer: "OpenClassrooms"
+    icon: "ti-exchange-vertical text-primary"
+    date: "2023"
+  - name: "Game Development (Pygame / LOVE2D)"
+    issuer: "Udemy / GameCodeur"
+    icon: "ti-game text-primary"
+    date: "2024"
+
+#-------------------------------
 # General Site Settings
 
 title: HKAJ
 logo:
 author: HOMAWOO Joseph
-description: This application is my portfolio
+description: Senior Backend Architect & System Strategist portfolio. High-performance systems and enterprise solutions.
 email: homawoojoseph@gmail.com
 phone: +228 99152480
-address: LOME,TOGO
-copyright: Copyright &copy; 2022 powered by [Jekyll & kross-jekyll](https://jekyllrb.com) 
+address: LOME, TOGO
+copyright: Copyright &copy; 2026 powered by [Jekyll & kross-jekyll](https://jekyllrb.com)
+url: "https://novenopatch.github.io" # Your site URL
+social_image: "assets/images/about/author.webp" # Default sharing image
+twitter_username: "@Jerrykel_j"
 
 menu:
   - { name: About, link: "/about" }
- # - { name: Blog, link: "/blog" }
+  - { name: Blog, link: "/blog" }
   - { name: Portfolio, link: "/portfolio" }
   - { name: Contact, link: "/contact" }
   - { name: CV, link: "/cv" }
@@ -321,6 +362,8 @@ portfolio-items:
 
   - image: "assets/images/portfolio/safe.webp"
     url: "https://github.com/novenopatch/MyPasswordManager"
+    project_path: "/project/safe-vault/"
+    sector: "FINTECH / SECURITY"
     portfolio-type:
       - type: "Mobile developement"
       - type: "design"

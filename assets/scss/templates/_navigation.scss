@@ -1,3 +1,6 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
 .navigation{
   padding: 20px 130px;
   transition: .3s ease;

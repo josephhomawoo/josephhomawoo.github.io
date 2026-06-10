@@ -1,55 +1,103 @@
 ---
 layout: default
 ---
-<!-- page title -->
-<section class="page-title bg-primary position-relative">
+<!-- immersive page title -->
+<section class="page-title-alt position-relative" style="padding: 150px 0 80px; overflow: hidden;">
   <div class="container">
     <div class="row">
-      <div class="col-12 text-center">
-        <h1 class="text-white font-tertiary">{{ site.data.settings.sections.blog_title }}</h1>
-      </div>
-    </div>
-  </div>
-  <!-- background shapes -->
-  <img src="{{ site.baseurl }}/assets/images/illustrations/page-title.webp" alt="illustrations" class="bg-shape-1 w-100">
-  <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-pink-round.webp" alt="illustrations" class="bg-shape-2">
-  <img src="{{ site.baseurl }}/assets/images/illustrations/dots-cyan.webp" alt="illustrations" class="bg-shape-3">
-  <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-orange.webp" alt="illustrations" class="bg-shape-4">
-  <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-yellow.webp" alt="illustrations" class="bg-shape-5">
-  <img src="{{ site.baseurl }}/assets/images/illustrations/dots-group-cyan.webp" alt="illustrations" class="bg-shape-6">
-  <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-cyan-lg.webp" alt="illustrations" class="bg-shape-7">
-</section>
-<!-- /page title -->
-
-<section class="section">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <h3 class="font-tertiary mb-5">{{ page.title | escape }}</h3>
-        <p class="font-secondary">{{ site.data.settings.labels.published_on }} {{ page.date | date: '%b %d, %Y' }} {{ site.data.settings.labels.by }} <span class="text-primary">{{ page.author }}</span
-            class="text-primary"> {{ site.data.settings.labels.on }} {% for tag in page.tags %}<span>{{ tag }} </span>{% endfor %}</p>
-        <div class="content">
-          <img src="{{page.image | relative_url }}" class="img-fluid rounded float-start me-5 mb-4" alt="{{page.title}}">
-          {{ content }}
+      <div class="col-lg-10 mx-auto text-center">
+        <div class="mb-4" data-aos="fade-up">
+          <a href="{{ site.baseurl }}/blog" class="text-primary small font-monospace d-inline-flex align-items-center mb-4 text-decoration-none hover-primary">
+            <i class="ti-arrow-left me-2"></i>{{ t.labels.back_to_blog | upcase }}
+          </a>
+          <div class="mt-2">
+            {% for tag in page.tags %}
+            <span class="badge glass text-primary px-3 py-2 me-2 font-monospace">{{ tag | upcase }}</span>
+            {% endfor %}
+          </div>
+        </div>
+        <h1 class="text-white font-tertiary mb-4" style="font-size: 3.5rem; line-height: 1.1;" data-aos="fade-up" data-aos-delay="100">{{ page.title | escape }}</h1>
+        <div class="d-flex justify-content-center align-items-center gap-4 text-secondary font-monospace" data-aos="fade-up" data-aos-delay="200">
+          <span><i class="ti-calendar me-2"></i>{{ page.date | date: '%B %d, %Y' }}</span>
+          <span><i class="ti-user me-2"></i>{{ page.author | default: site.data.settings.author }}</span>
+          {% assign words = content | number_of_words %}
+          <span><i class="ti-timer me-2"></i>{{ words | divided_by: 200 | plus: 1 }} {{ t.labels.min_read }}</span>
         </div>
       </div>
     </div>
   </div>
+  
+  <!-- background shapes -->
+  <div class="bg-shapes">
+    <img src="{{ site.baseurl }}/assets/images/illustrations/dots-group-cyan.webp" alt="bg-shape" class="img-fluid bg-shape-1">
+    <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-pink-round.webp" alt="bg-shape" class="img-fluid bg-shape-2">
+    <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-cyan-lg.webp" alt="bg-shape" class="img-fluid bg-shape-3">
+  </div>
 </section>
 
-{% if site.data.settings.disqus-identifier %} {% include disqus-comments.html %} {% endif %}
-
-<!-- blog -->
-<section class="section">
+<!-- post content -->
+<section class="section pt-0">
   <div class="container">
     <div class="row">
-      <div class="col-12 text-center">
-        <h2 class="section-title">{{ site.data.settings.sections.similar_stories_title }}</h2>
+      <div class="col-lg-10 mx-auto">
+        <div class="glass p-4 p-md-5 rounded-lg shadow-lg" data-aos="fade-up">
+          {% if page.image %}
+          <div class="mb-5 rounded-lg overflow-hidden shadow-lg border border-dark">
+            <img src="{{ page.image | relative_url }}" class="img-fluid w-100" alt="{{ page.title }}" style="max-height: 600px; object-fit: cover;">
+          </div>
+          {% endif %}
+          
+          <div class="content text-color-dark fs-5" style="line-height: 1.8;">
+            {{ content }}
+          </div>
+          
+          <div class="mt-5 pt-5 border-top border-dark">
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+              <div class="share-links d-flex align-items-center gap-3">
+                <span class="text-white small font-monospace">{{ t.labels.share }}:</span>
+                <a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.data.settings.url }}{{ page.url }}" class="glass p-2 rounded-circle text-primary" target="_blank"><i class="ti-twitter"></i></a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.data.settings.url }}{{ page.url }}" class="glass p-2 rounded-circle text-primary" target="_blank"><i class="ti-facebook"></i></a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ site.data.settings.url }}{{ page.url }}" class="glass p-2 rounded-circle text-primary" target="_blank"><i class="ti-linkedin"></i></a>
+              </div>
+              
+              <div class="tags">
+                {% for tag in page.tags %}
+                <span class="text-secondary small font-monospace me-2">#{{ tag | downcase }}</span>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {% if site.data.settings.disqus-identifier %}
+        <div class="mt-5" data-aos="fade-up">
+          <div class="glass p-4 p-md-5 rounded-lg">
+             <h3 class="mb-4 text-white font-tertiary">{{ t.sections.comments_title }}</h3>
+             {% include disqus-comments.html %}
+          </div>
+        </div>
+        {% endif %}
       </div>
-      {% for post in site.posts offset:0 limit:3 %}
-      {% include post.html %}
+    </div>
+  </div>
+</section>
+
+<!-- similar stories -->
+<section class="section bg-dark border-top border-dark">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-12 text-center">
+        <h2 class="section-title">{{ t.sections.similar_stories_title }}</h2>
+      </div>
+    </div>
+    <div class="row">
+      {% assign count = 0 %}
+      {% for post in site.posts %}
+        {% if post.url != page.url and count < 3 %}
+          {% include post.html %}
+          {% assign count = count | plus: 1 %}
+        {% endif %}
       {% endfor %}
     </div>
   </div>
 </section>
-<!-- /blog -->

@@ -1,0 +1,27 @@
+labels:
+  home: "Accueil"
+  about: "À Propos"
+  blog: "Blog"
+  portfolio: "Portfolio"
+  contact: "Contact"
+  cv: "CV"
+  read_more: "LIRE LA SUITE"
+  back_to_blog: "Retour au bLog"
+  share: "PARTAGER_NOEUD"
+  min_read: "MIN DE LECTURE"
+  all_systems: "TOUS LES SYSTÈMES"
+
+sections:
+  blog_title: "Perspectives Techniques"
+  blog_subtitle: "EXPLORATION DE L'ARCHITECTURE SYSTÈME ET DE L'EXCELLENCE BACKEND"
+  similar_stories_title: "Articles Similaires"
+  comments_title: "Commentaires"
+  clients_title: "Partenariats Stratégiques"
+  about_title: "Maîtriser la Complexité"
+
+about:
+  blurb: "Je code et conçois des choses magnifiquement simples, et j'aime ce que je fais."
+  btn_name: "en savoir plus"
+
+hero:
+  title: "ROI DU BACKEND <br> Architecte Système <br> & Stratège UX"
