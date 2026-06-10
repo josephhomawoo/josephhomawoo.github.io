@@ -4,16 +4,16 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
-        <h2 class="section-title">{{ site.data.settings.skills-title }}</h2>
+        <h2 class="section-title">{{ site.data.settings.sections.skills_title }}</h2>
       </div>
     </div>
     <div class="bento-grid">
       {% for skill in site.data.settings.skills %}
       <div class="card bento-item glow-on-hover {% if forloop.index == 1 %}large{% elsif forloop.index == 4 %}wide{% elsif forloop.index == 5 %}tall{% endif %}" 
            data-aos="zoom-in" data-aos-delay="{{ forloop.index0 | times: 50 }}">
-        <i class="ti-layers-alt text-primary mb-3"></i> <!-- Fallback icon, assuming themify is available -->
+        <i class="{{ skill.icon | default: 'ti-layers-alt text-primary' }} mb-3" style="font-size: 2.5rem;"></i>
         <h4 class="card-title mb-0">{{ skill.name }}</h4>
-        <small class="text-secondary mt-2">{{ skill.value }}% Proficiency</small>
+        <small class="text-secondary mt-2">{{ skill.value }}% {{ site.data.settings.labels.proficiency_label }}</small>
       </div>
       {% endfor %}
     </div>

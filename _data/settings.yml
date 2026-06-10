@@ -7,6 +7,105 @@ stats:
   years_exp: "5+"
   systems_built: "50+"
   quote: "Beyond feature delivery, I focus on architectural integrity and system longevity."
+  years_exp_label: "Years Exp"
+  systems_built_label: "Systems Built"
+
+#-------------------------------
+# UI Labels & Buttons
+labels:
+  home: "Home"
+  hire_me: "Hire Me"
+  view_work: "View Work"
+  view_all: "View All Projects"
+  read_more: "Read More"
+  inspect_project: "Inspect Project"
+  inspect_source: "INSPECT_SOURCE"
+  proficiency_label: "Proficiency"
+  status_label: "Status"
+  location_label: "Location"
+  uptime_label: "Uptime"
+  philosophy_title: "Core Philosophy"
+  roadmap_title: "Professional Roadmap"
+  activity_title: "Technical Laboratory"
+  view_organization: "View Organization"
+  view_portfolio_ledger: "View Portfolio Ledger"
+  lead_architect: "Lead Architect"
+  lead_consultant: "Lead Backend Consultant"
+  portfolio_item_description: "High-performance backend modules for mission-critical operations."
+  portfolio_default_description: "Scalable backend infrastructure designed for high-availability systems. Implementation of robust data protocols and modular architecture to support enterprise operations."
+  sector_label: "NGO SECTOR"
+  view_project: "VIEW PROJECT"
+  contact_form_title: "Contact Form"
+  newsletter_title: "Signup for Weekly Email Newsletters :D"
+  newsletter_placeholder: "email address"
+  subscribe: "Subscribe"
+  download_cv: "Download CV"
+  page_not_found_msg: "The requested page could not be found."
+  back_to_blog: "Back to the bLog"
+  name_placeholder: "Full Name"
+  email_placeholder: "Email Address"
+  message_placeholder: "Type Message Here"
+  send: "Send"
+  published_on: "Published on"
+  by: "by"
+  on: "on"
+  email_label: "Email"
+  phone_label: "Phone"
+  address_label: "Address"
+
+#-------------------------------
+# Section Titles
+sections:
+  about_title: "Mastering Complexity"
+  skills_title: "Technical Stack"
+  experience_title: "Professional Roadmap"
+  education_title: "Academic Background"
+  services_title: "Technical Expertise"
+  portfolio_title: "Enterprise Solutions"
+  case_studies_title: "Enterprise Case Studies"
+  testimonials_title: "Client Feedback"
+  blog_title: "Technical Insights"
+  contact_title: "Let's Connect"
+  clients_title: "Strategic Partnerships"
+  team_title: "My Team"
+  work_process_title: "Work Process"
+  activity_title: "My Coding Activity"
+  cv_experience_title: "My Experience & Skills"
+  similar_stories_title: "Similar Stories"
+  comments_title: "Comments"
+
+#-------------------------------
+# Technical Lab Settings
+tech_lab:
+  title: "Technical Laboratory"
+  description: "Empirical evidence of system architecture quality and consistent engineering activity."
+  code_forge:
+    title: "Code Forge"
+    php_label: "PHP/SYMFONY"
+    php_icon: "devicon-symfony-original"
+    python_label: "PYTHON/FASTAPI"
+    python_icon: "devicon-fastapi-plain"
+
+#-------------------------------
+# Portfolio Page Settings
+portfolio_page:
+  title: "Enterprise Solutions"
+  description: "Expert backend systems and architectural consulting for international organizations and global enterprises."
+  rnd_section:
+    title: "Beyond Delivery: Continuous R&D"
+    content: "In the fast-evolving landscape of backend engineering, my commitment to excellence extends beyond client deliverables. I dedicate significant time to Experimental R&D—exploring distributed systems, advanced cryptography, and emerging language paradigms. This culture of constant learning ensures that the solutions I provide are not just functional, but future-proof and architecturally superior."
+
+#-------------------------------
+# About Page Settings
+about_page:
+  author_tagline: "KING OF BACKEND"
+  status_value: "active"
+  location_value: "Remote / Global"
+  uptime_value: "4+ Years Experience"
+  vision_title: "Architectural Vision"
+  vision_content: "Designing scalable, robust backend systems that prioritize performance and maintainability over generic solutions."
+  mastery_title: "Tech Mastery"
+  mastery_content: "Constant research into modern patterns (Microservices, Hexagonal Architecture) to deliver industry-leading code."
 
 #-------------------------------
 # General Site Settings
@@ -47,6 +146,12 @@ disqus-identifier: jerrykel
 
 hero:
   hero-title: KING OF BACKEND <br> System Architect <br> & UX Strategist
+  terminal:
+    window_title: "bash — 80x24"
+    profile_loaded: "Developer profile loaded"
+    status_msg: "Status: Open for new projects"
+    mood_msg: "Mood: High caffeine levels detected"
+    skills_prefix: "Skills"
 
 social:
   - { icon: "ti-facebook", link: "https://web.facebook.com/fernando.vilarios" }
@@ -92,22 +197,20 @@ team:
 #-------------------------------
 # Skills Section
 
-skills-title: Skills
 skills:
-  - { name: Java/Kotlin & Javafx, color: "#5473e6", value: "80%" }
-  - { name: Android & Flutter, color: "#fdb157", value: "70%" }
-  - { name: PHP & Symfony , color: "#fbb157", value: "80%" }
-  - { name: Python & Django  , color: "#9473e6", value: "80%" }
-  - { name: HTML/CSS/JS , color: "#fcbcaa", value: "70%" }
-  - { name: React , color: "#fcccaa", value: "50%" }
-  - { name: Git & Docker , color: "#ffccaa", value: "80%" }
-  - { name : Firebase and Aws, color: "#f473e6", value: "60%"}
-  - { name: Adobe Xd, color: "#bdecf6", value: "70%" }
+  - { name: Java/Kotlin & Javafx, color: "#5473e6", value: "80%", icon: "devicon-java-plain colored" }
+  - { name: Android & Flutter, color: "#fdb157", value: "70%", icon: "devicon-android-plain colored" }
+  - { name: PHP & Symfony , color: "#fbb157", value: "80%", icon: "devicon-php-plain colored" }
+  - { name: Python & Django  , color: "#9473e6", value: "80%", icon: "devicon-python-plain colored" }
+  - { name: HTML/CSS/JS , color: "#fcbcaa", value: "70%", icon: "devicon-javascript-plain colored" }
+  - { name: React , color: "#fcccaa", value: "50%", icon: "devicon-react-original colored" }
+  - { name: Git & Docker , color: "#ffccaa", value: "80%", icon: "devicon-docker-plain colored" }
+  - { name : Firebase and Aws, color: "#f473e6", value: "60%", icon: "devicon-firebase-plain colored" }
+  - { name: Adobe Xd, color: "#bdecf6", value: "70%", icon: "devicon-xd-plain colored" }
 
 #-------------------------------
 # Exprerience Section
 
-experience-title: Experience
 experience:
   - {
       name: Technician Software,
@@ -141,7 +244,6 @@ experience:
 #-------------------------------
 # Education Section
 
-education-title: Education
 education:
   - {
       name: Licence ,
@@ -160,7 +262,6 @@ education:
 #-------------------------------
 # Services Section
 
-services-title: Technical Expertise
 services:
   - {
       name: Core System Architecture,
@@ -287,5 +388,4 @@ client-slider-items:
 #-------------------------------
 # Contact Section
 
-contact-title: Contact Info
 contact-email: homawoojoseph@gmail.com

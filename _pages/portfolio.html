@@ -7,8 +7,8 @@ title: Portfolio
   <div class="container">
     <div class="row mb-5">
       <div class="col-lg-8 mx-auto text-center">
-        <h2 class="section-title mb-3" data-aos="fade-up">Enterprise Solutions</h2>
-        <p class="text-color-dark mb-5" data-aos="fade-up" data-aos-delay="100">Expert backend systems and architectural consulting for international organizations and global enterprises.</p>
+        <h2 class="section-title mb-3" data-aos="fade-up">{{ site.data.settings.portfolio_page.title }}</h2>
+        <p class="text-color-dark mb-5" data-aos="fade-up" data-aos-delay="100">{{ site.data.settings.portfolio_page.description }}</p>
         
         <div class="glass p-5 rounded-lg text-start mb-5" style="border-left: 4px solid $primary-color !important;" data-aos="fade-up" data-aos-delay="200">
           <div class="row align-items-center">
@@ -16,9 +16,9 @@ title: Portfolio
               <i class="ti-light-bulb text-primary" style="font-size: 3rem;"></i>
             </div>
             <div class="col-md-10">
-              <h4 class="text-white mb-3">Beyond Delivery: Continuous R&D</h4>
+              <h4 class="text-white mb-3">{{ site.data.settings.portfolio_page.rnd_section.title }}</h4>
               <p class="small text-color-dark mb-0" style="line-height: 1.8;">
-                In the fast-evolving landscape of backend engineering, my commitment to excellence extends beyond client deliverables. I dedicate significant time to <strong>Experimental R&D</strong>—exploring distributed systems, advanced cryptography, and emerging language paradigms. This culture of constant learning ensures that the solutions I provide are not just functional, but future-proof and architecturally superior.
+                {{ site.data.settings.portfolio_page.rnd_section.content }}
               </p>
             </div>
           </div>
@@ -26,7 +26,7 @@ title: Portfolio
         
         <div class="filter-container" data-aos="fade-up" data-aos-delay="300">
           <label class="btn-filter active">
-            <input type="radio" name="shuffle-filter" value="all" checked="checked" /> ALL PROJECTS
+            <input type="radio" name="shuffle-filter" value="all" checked="checked" /> {{ site.data.settings.labels.view_all | upcase }}
           </label>
           {% for label in site.data.settings.portfolio-label %}
           <label class="btn-filter">
@@ -50,9 +50,9 @@ title: Portfolio
           </div>
           
           <div class="card-body p-4">
-            <span class="consultant-role mb-2 d-block">Lead Backend Consultant</span>
+            <span class="consultant-role mb-2 d-block">{{ site.data.settings.labels.lead_consultant }}</span>
             <h4 class="text-white mb-3">{{ item.name | default: 'Infrastructure Solution' }}</h4>
-            <p class="small text-color-dark mb-4" style="line-height: 1.6;">{{ item.description | default: 'Scalable backend infrastructure designed for high-availability systems. Implementation of robust data protocols and modular architecture to support enterprise operations.' }}</p>
+            <p class="small text-color-dark mb-4" style="line-height: 1.6;">{{ item.description | default: site.data.settings.labels.portfolio_default_description }}</p>
             
             <div class="d-flex flex-wrap gap-2 mb-4">
               {% for type in item.portfolio-type %}
@@ -61,8 +61,8 @@ title: Portfolio
             </div>
             
             <div class="mt-auto pt-3 border-top border-dark d-flex justify-content-between align-items-center">
-              <span class="text-secondary small font-monospace">NGO SECTOR</span>
-              <a href="{{ item.url }}" class="text-primary font-weight-bold small">VIEW PROJECT <i class="ti-arrow-right ms-1"></i></a>
+              <span class="text-secondary small font-monospace">{{ site.data.settings.labels.sector_label }}</span>
+              <a href="{{ item.url }}" class="text-primary font-weight-bold small">{{ site.data.settings.labels.view_project }} <i class="ti-arrow-right ms-1"></i></a>
             </div>
           </div>
         </div>
@@ -78,7 +78,7 @@ title: Portfolio
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
-        <h2 class="section-title">My Clients</h2>
+        <h2 class="section-title">{{ site.data.settings.sections.clients_title }}</h2>
       </div>
     </div>
     {% include client-slider.html %}

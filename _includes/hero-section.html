@@ -6,8 +6,8 @@
         <h1 class="text-white font-tertiary mb-4" style="font-size: 4rem; line-height: 1.1;">{{ site.data.settings.hero.hero-title }}</h1>
         <p class="text-light mb-5 fs-5">{{ site.data.settings.description }}</p>
         <div class="d-flex gap-3">
-          <a href="#contact" class="btn btn-primary">Hire Me</a>
-          <a href="{{ site.baseurl }}/portfolio" class="btn btn-outline-light">View Work</a>
+          <a href="#contact" class="btn btn-primary">{{ site.data.settings.labels.hire_me }}</a>
+          <a href="{{ site.baseurl }}/portfolio" class="btn btn-outline-light">{{ site.data.settings.labels.view_work }}</a>
         </div>
       </div>
       <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
@@ -16,7 +16,7 @@
             <div class="terminal-button red"></div>
             <div class="terminal-button yellow"></div>
             <div class="terminal-button green"></div>
-            <div class="ms-2 text-secondary small">bash — 80x24</div>
+            <div class="ms-2 text-secondary small">{{ site.data.settings.hero.terminal.window_title }}</div>
           </div>
           <div class="terminal-body" id="terminal-body" data-command="{{ site.data.settings.terminal_command }}">
             <div class="command-line">
@@ -24,11 +24,11 @@
             </div>
             <div class="output" id="terminal-output" style="display: none;">
               <br>
-              <span class="text-success">✔</span> Developer profile loaded<br>
-              <span class="text-info">ℹ</span> Status: Open for new projects<br>
-              <span class="text-warning">⚠</span> Mood: High caffeine levels detected<br>
+              <span class="text-success">✔</span> {{ site.data.settings.hero.terminal.profile_loaded }}<br>
+              <span class="text-info">ℹ</span> {{ site.data.settings.hero.terminal.status_msg }}<br>
+              <span class="text-warning">⚠</span> {{ site.data.settings.hero.terminal.mood_msg }}<br>
               <br>
-              <span class="text-primary">></span> Skills: React, Symfony, Flutter...
+              <span class="text-primary">></span> {{ site.data.settings.hero.terminal.skills_prefix }}: React, Symfony, Flutter...
             </div>
           </div>
         </div>
