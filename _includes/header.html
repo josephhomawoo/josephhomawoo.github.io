@@ -16,6 +16,19 @@
 
     <div class="collapse navbar-collapse text-center" id="navigation">
       <ul class="navbar-nav ms-auto align-items-center">
+        <li class="nav-item">
+          <a class="nav-link {% if page.url == '/' or page.url == '/index.html' %}active{% endif %}" href="{{ site.baseurl }}/">{{ t.labels.home }}</a>
+        </li>
+        {% for link in site.data.settings.menu %}
+          {% assign active = false %}
+          {% if page.url contains link.link %}
+            {% assign active = true %}
+          {% endif %}
+          <li class="nav-item {% if active %}active{% endif %}">
+            <a class="nav-link" href="{{ link.link | relative_url }}">{{ t.labels[link.name | downcase] | default: link.name }}</a>
+          </li>
+        {% endfor %}
+        
         <!-- Language Switcher -->
         <li class="nav-item dropdown ms-lg-3">
           <a class="nav-link dropdown-toggle font-monospace small" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -25,6 +38,12 @@
             <li><a class="dropdown-item small {% if lang == 'en' %}active{% endif %}" href="{{ site.baseurl }}/">EN - ENGLISH</a></li>
             <li><a class="dropdown-item small {% if lang == 'fr' %}active{% endif %}" href="{{ site.baseurl }}/fr/">FR - FRANÇAIS</a></li>
           </ul>
+        </li>
+
+        <li class="nav-item ms-lg-3">
+          <button class="btn btn-sm btn-outline-light border-0" id="dark-mode-toggle" aria-label="Toggle dark mode">
+            <i class="ti-shine" id="dark-mode-icon"></i>
+          </button>
         </li>
       </ul>
     </div>
