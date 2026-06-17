@@ -1,3 +1,6 @@
+@use "sass:color";
+@use "variables" as *;
+
 /* Button style */
 .btn {
   font-size: 22px;
@@ -36,16 +39,16 @@
   color: $white;
 
   &:active {
-    background: lighten($color: $primary-color, $amount: 10) !important;
+    background: color.scale($primary-color, $lightness: 10%) !important;
   }
 
   &:hover {
-    background: lighten($color: $primary-color, $amount: 10);
+    background: color.scale($primary-color, $lightness: 10%);
   }
 
   &.focus,
   &.active {
-    background: lighten($color: $primary-color, $amount: 10) !important;
+    background: color.scale($primary-color, $lightness: 10%) !important;
     box-shadow: none !important;
   }
 }

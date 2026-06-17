@@ -1,0 +1,95 @@
+@use "../variables" as *;
+
+.dock-wrapper {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1050;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.dock {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  border-radius: 24px;
+  pointer-events: auto;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  &:hover {
+    padding: 8px 16px;
+    gap: 15px;
+  }
+}
+
+.dock-item {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: $heading-color-light;
+  font-size: 1.2rem;
+  transition: all 0.2s ease;
+  
+  &:hover, &.active {
+    background: rgba($primary-color, 0.1);
+    color: $primary-color;
+  }
+
+  &.active {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba($primary-color, 0.2);
+  }
+
+  &:hover {
+    transform: scale(1.2) translateY(-10px);
+  }
+}
+
+.dock-divider {
+  width: 1px;
+  height: 24px;
+  background: $border-color-light;
+  margin: 0 5px;
+}
+
+[data-bs-theme="dark"] {
+  .dock-item {
+    color: $heading-color-dark;
+    
+    &:hover {
+      background: rgba($primary-color, 0.2);
+    }
+  }
+  
+  .dock-divider {
+    background: $border-color-dark;
+  }
+}
+
+@media (max-width: 576px) {
+  .dock-wrapper {
+    bottom: 20px;
+    width: 90%;
+  }
+  
+  .dock {
+    gap: 5px;
+    padding: 5px;
+    border-radius: 20px;
+    width: 100%;
+    justify-content: space-around;
+  }
+  
+  .dock-item {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+}

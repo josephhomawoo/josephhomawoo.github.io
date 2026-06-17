@@ -7,14 +7,20 @@ layout: compress
 {% include head.html %}
 
 <body>
+  {% assign lang = page.lang | default: "en" %}
+  {% assign t = site.data.translations[lang] %}
 
-  {% include header.html %}
+  {% include header.html lang=lang t=t %}
 
   {{ content }}
 
-  {% include contact-section.html %}
+  {% include about-section.html lang=lang t=t %}
 
-  {% include footer.html %}
+  {% include blog-section.html lang=lang t=t %}
+
+  {% include contact-section.html lang=lang t=t %}
+
+  {% include footer.html lang=lang t=t %}
   {% include firebase.html %}
 
 </body>

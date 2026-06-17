@@ -1,21 +1,21 @@
+{% assign lang = include.lang | default: page.lang | default: "en" %}
+{% assign t = include.t | default: site.data.translations[lang] %}
 {% if site.data.settings.skills %}
 <!-- skills -->
 <section class="section">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
-        <h2 class="section-title">{{ site.data.settings.skills-title }}</h2>
+        <h2 class="section-title">{{ t.sections.skills_title | default: site.data.settings.sections.skills_title }}</h2>
       </div>
+    </div>
+    <div class="bento-grid">
       {% for skill in site.data.settings.skills %}
-      <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0">
-        <div class="card shadow text-center">
-          <div class="position-relative rounded-top progress-wrapper" data-color="{{ skill.color }}">
-            <div class="wave" data-progress="{{ skill.value }}"></div>
-          </div>
-          <div class="card-footer bg-white">
-            <h4 class="card-title">{{ skill.name }} ({{ skill.value }})</h4>
-          </div>
-        </div>
+      <div class="card bento-item glow-on-hover {% if forloop.index == 1 %}large{% elsif forloop.index == 4 %}wide{% elsif forloop.index == 5 %}tall{% endif %}" 
+           data-aos="zoom-in" data-aos-delay="{{ forloop.index0 | times: 50 }}">
+        <i class="{{ skill.icon | default: 'ti-layers-alt text-primary' }} mb-3" style="font-size: 2.5rem;"></i>
+        <h4 class="card-title mb-0">{{ skill.name }}</h4>
+        <small class="text-secondary mt-2">{{ skill.value }}% {{ t.labels.proficiency | default: site.data.settings.labels.proficiency_label }}</small>
       </div>
       {% endfor %}
     </div>

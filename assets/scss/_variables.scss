@@ -1,16 +1,44 @@
-// Color Variables
-$primary-color: #41228e;
-$secondary-color: #2bfdff;
-$text-color: #4c4c4c;
-$text-color-dark: #000;
-$text-color-light: #999;
-$body-color: #fff;
-$border-color: #c7c7c7;
+// Theme Colors - Slate Minimal (Light)
+$body-bg-light: #f8fafc; // Slate 50
+$text-color-light: #334155; // Slate 700
+$heading-color-light: #0f172a; // Slate 900
+$border-color-light: rgba(15, 23, 42, 0.06);
+$card-bg-light: rgba(255, 255, 255, 0.7);
+
+// Theme Colors - Cyber Midnight (Dark)
+$body-bg-dark: #030712; // Gray 950 (deeper than zinc for premium feel)
+$text-color-dark-mode: #9ca3af; // Gray 400
+$heading-color-dark: #f9fafb; // Gray 50
+$border-color-dark: rgba(255, 255, 255, 0.06);
+$card-bg-dark: rgba(17, 24, 39, 0.7); // Gray 900
+
+// Signature Brand
+$primary-color: #6366f1; // Indigo
+$secondary-color: #06b6d4; // Cyan
+$accent-color: #d946ef; // Fuchsia (for UI/UX design highlights)
 $black: #000;
 $white: #fff;
-$gray: #eaeaea;
 
-// Font Variables
-$primary-font: 'Roboto', sans-serif;
-$secondary-font: 'Playfair Display', serif;
-$icon-font: 'themify';
+// Typography
+$primary-font: 'Inter', sans-serif;
+$secondary-font: 'Inter', sans-serif;
+$code-font: 'JetBrains Mono', monospace;
+
+// Tracking (Inspired by afanwoubo.tech)
+$tracking-tighter: -0.05em;
+$tracking-tight: -0.025em;
+$tracking-normal: 0em;
+$tracking-wide: 0.025em;
+
+// Legacy Mappings for Compatibility
+$text-color: $text-color-light;
+$text-color-dark: $heading-color-light;
+$body-color: $body-bg-light;
+$border-color: $border-color-light;
+$gray: #6b7280;
+
+// Grid & Pattern
+$grid-color-light: rgba(0, 0, 0, 0.03);
+$grid-color-dark: rgba(255, 255, 255, 0.03);
+$dot-color-light: rgba(0, 0, 0, 0.1);
+$dot-color-dark: rgba(255, 255, 255, 0.1);

@@ -1,0 +1,50 @@
+<!-- technical-lab -->
+<section class="section">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-12">
+        <h2 class="section-title">{{ site.data.settings.tech_lab.title }}</h2>
+        <p class="text-color-dark">{{ site.data.settings.tech_lab.description }}</p>
+      </div>
+    </div>
+
+    <div class="row g-4 mb-5">
+      <!-- GitHub Stats -->
+      <div class="col-lg-6" data-aos="fade-right">
+        <div class="glass p-4 h-100 rounded-lg">
+          <h4 class="text-white mb-4"><i class="ti-github me-3"></i>Global Activity</h4>
+          <div class="text-center">
+            <img src="https://github-readme-stats.vercel.app/api?username={{ site.data.settings.github_username }}&show_icons=true&theme=tokyonight&bg_color=0f172a&title_color=0ea5e9&text_color=94a3b8&icon_color=10b981&hide_border=true" alt="GitHub Stats" class="img-fluid rounded">
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+        <div class="glass p-4 h-100 rounded-lg">
+          <h4 class="text-white mb-4"><i class="ti-layout me-3"></i>Stack Distribution</h4>
+          <div class="text-center">
+            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username={{ site.data.settings.github_username }}&layout=compact&theme=tokyonight&bg_color=0f172a&title_color=0ea5e9&text_color=94a3b8&hide_border=true" alt="Top Languages" class="img-fluid rounded">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /technical-lab -->
+
+<style>
+.nav-pills .nav-link {
+  color: #94a3b8;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+.nav-pills .nav-link.active {
+  background: #6366f1 !important;
+  color: white !important;
+}
+pre[class*="language-"] {
+  background: #0d1117 !important;
+  margin: 0 !important;
+  padding: 2em !important;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+</style>

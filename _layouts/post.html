@@ -1,55 +1,184 @@
 ---
 layout: default
 ---
-<!-- page title -->
-<section class="page-title bg-primary position-relative">
+<!-- Scroll Progress Indicator -->
+<div class="scroll-progress-container">
+  <div class="scroll-progress-bar" id="scroll-progress"></div>
+</div>
+
+<!-- immersive page title -->
+<section class="page-title-alt position-relative" style="padding: 150px 0 80px; overflow: hidden;">
   <div class="container">
     <div class="row">
-      <div class="col-12 text-center">
-        <h1 class="text-white font-tertiary">Blogs</h1>
+      <div class="col-lg-10 mx-auto text-center">
+        <div class="mb-4" data-aos="fade-up">
+          <a href="{{ site.baseurl }}/blog" class="text-primary small font-monospace d-inline-flex align-items-center mb-4 text-decoration-none hover-primary">
+            <i class="ti-arrow-left me-2"></i>{{ t.labels.back_to_blog | upcase }}
+          </a>
+          <div class="mt-2">
+            {% for tag in page.tags %}
+            <span class="badge glass text-primary px-3 py-2 me-2 font-monospace">{{ tag | upcase }}</span>
+            {% endfor %}
+          </div>
+        </div>
+        <h1 class="text-white font-tertiary mb-4" style="font-size: 3.25rem; line-height: 1.15;" data-aos="fade-up" data-aos-delay="100">{{ page.title | escape }}</h1>
+        <div class="d-flex justify-content-center align-items-center gap-4 text-secondary font-monospace" data-aos="fade-up" data-aos-delay="200">
+          <span><i class="ti-calendar me-2"></i>{{ page.date | date: '%B %d, %Y' }}</span>
+          <span><i class="ti-user me-2"></i>{{ page.author | default: site.data.settings.author }}</span>
+          {% assign words = content | number_of_words %}
+          <span><i class="ti-timer me-2"></i>{{ words | divided_by: 200 | plus: 1 }} {{ t.labels.min_read }}</span>
+        </div>
       </div>
     </div>
   </div>
+  
   <!-- background shapes -->
-  <img src="{{ site.baseurl }}/assets/images/illustrations/page-title.png" alt="illustrations" class="bg-shape-1 w-100">
-  <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-pink-round.png" alt="illustrations" class="bg-shape-2">
-  <img src="{{ site.baseurl }}/assets/images/illustrations/dots-cyan.png" alt="illustrations" class="bg-shape-3">
-  <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-orange.png" alt="illustrations" class="bg-shape-4">
-  <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-yellow.png" alt="illustrations" class="bg-shape-5">
-  <img src="{{ site.baseurl }}/assets/images/illustrations/dots-group-cyan.png" alt="illustrations" class="bg-shape-6">
-  <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-cyan-lg.png" alt="illustrations" class="bg-shape-7">
-</section>
-<!-- /page title -->
 
-<section class="section">
+</section>
+
+<!-- post content -->
+<section class="section pt-0">
   <div class="container">
     <div class="row">
-      <div class="col-lg-12">
-        <h3 class="font-tertiary mb-5">{{ page.title | escape }}</h3>
-        <p class="font-secondary">Published on {{ page.date | date: '%b %d, %Y' }} by <span class="text-primary">{{ page.author }}</span
-            class="text-primary"> on {% for tag in page.tags %}<span>{{ tag }} </span>{% endfor %}</p>
-        <div class="content">
-          <img src="{{page.image | relative_url }}" class="img-fluid rounded float-left mr-5 mb-4" alt="{{page.title}}">
-          {{ content }}
+      <!-- Main Content Column -->
+      <div class="col-lg-8 col-md-12 mb-5 mb-lg-0">
+        <div class="glass p-4 p-md-5 rounded-lg shadow-lg" data-aos="fade-up">
+          {% if page.image %}
+          <div class="mb-5 rounded-lg overflow-hidden shadow-lg border border-dark">
+            <img src="{{ page.image | relative_url }}" class="img-fluid w-100" alt="{{ page.title }}" style="max-height: 500px; object-fit: cover;">
+          </div>
+          {% endif %}
+          
+          <div class="content">
+            {{ content }}
+          </div>
+          
+          <div class="mt-5 pt-4 border-top border-dark">
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+              <div class="share-links d-flex align-items-center gap-3">
+                <span class="text-white small font-monospace">{% if lang == 'fr' %}Partager:{% else %}Share:{% endif %}</span>
+                <a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.data.settings.url }}{{ page.url }}" class="glass p-2 rounded-circle text-primary" target="_blank" data-bs-toggle="tooltip" title="Twitter"><i class="ti-twitter"></i></a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.data.settings.url }}{{ page.url }}" class="glass p-2 rounded-circle text-primary" target="_blank" data-bs-toggle="tooltip" title="Facebook"><i class="ti-facebook"></i></a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ site.data.settings.url }}{{ page.url }}" class="glass p-2 rounded-circle text-primary" target="_blank" data-bs-toggle="tooltip" title="LinkedIn"><i class="ti-linkedin"></i></a>
+              </div>
+              
+              <div class="tags">
+                {% for tag in page.tags %}
+                <span class="text-secondary small font-monospace me-2">#{{ tag | downcase }}</span>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {% if site.data.settings.disqus-identifier %}
+        <div class="mt-5" data-aos="fade-up">
+          <div class="glass p-4 p-md-5 rounded-lg">
+             <h3 class="mb-4 text-white font-tertiary">{{ t.sections.comments_title }}</h3>
+             {% include disqus-comments.html %}
+          </div>
+        </div>
+        {% endif %}
+      </div>
+
+      <!-- Sticky Sidebar Column -->
+      <div class="col-lg-4 col-md-12">
+        <div class="sticky-sidebar-wrapper">
+          <!-- Author Info Card -->
+          <div class="glass p-4 rounded-lg mb-4 shadow-sm" data-aos="fade-up" data-aos-delay="100">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              {% if site.data.settings.social_image %}
+              <div class="position-relative">
+                <img src="{{ site.data.settings.social_image | relative_url }}" alt="{{ site.data.settings.author }}" class="rounded-circle border border-primary shadow-sm" style="width: 48px; height: 48px; object-fit: cover;">
+              </div>
+              {% else %}
+              <div class="author-avatar-pulse">
+                <i class="ti-user text-primary fs-3"></i>
+              </div>
+              {% endif %}
+              <div>
+                <h5 class="text-white mb-0 font-monospace" style="font-size: 1.05rem;">{{ page.author | default: site.data.settings.author }}</h5>
+                <span class="text-secondary small font-monospace">{% if lang == 'fr' %}Architecte Principal{% else %}Lead Consultant{% endif %}</span>
+              </div>
+            </div>
+            <p class="small text-secondary mb-0" style="line-height: 1.5;">
+              {% if lang == 'fr' %}
+                Architecte système spécialisé dans les infrastructures à haute disponibilité et le développement d'applications d'entreprise.
+              {% else %}
+                System Architect specializing in high-availability backend systems and scalable enterprise application designs.
+              {% endif %}
+            </p>
+          </div>
+
+          <!-- Dynamic Table of Contents Card -->
+          <div class="glass p-4 rounded-lg mb-4 shadow-sm toc-card" data-aos="fade-up" data-aos-delay="200">
+            <h5 class="text-white mb-3 font-monospace pb-2 border-bottom border-dark d-flex align-items-center gap-2" style="font-size: 1.1rem;">
+              <i class="ti-list text-primary"></i>
+              {% if lang == 'fr' %}Sur cette page{% else %}On this page{% endif %}
+            </h5>
+            <div class="toc-container">
+              <nav id="toc">
+                <ul class="toc-list list-unstyled ps-0 small mb-0">
+                  <!-- Generated dynamically via JS -->
+                </ul>
+              </nav>
+            </div>
+          </div>
+
+          <!-- Share Actions Card -->
+          <div class="glass p-4 rounded-lg mb-4 shadow-sm" data-aos="fade-up" data-aos-delay="300">
+            <h5 class="text-white mb-3 font-monospace pb-2 border-bottom border-dark" style="font-size: 1.1rem;">
+              {% if lang == 'fr' %}Partager l'article{% else %}Share article{% endif %}
+            </h5>
+            <div class="d-flex align-items-center gap-2">
+              <a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.data.settings.url }}{{ page.url }}" class="share-btn twitter-btn glass d-flex align-items-center justify-content-center" target="_blank" data-bs-toggle="tooltip" title="Twitter">
+                <i class="ti-twitter"></i>
+              </a>
+              <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.data.settings.url }}{{ page.url }}" class="share-btn facebook-btn glass d-flex align-items-center justify-content-center" target="_blank" data-bs-toggle="tooltip" title="Facebook">
+                <i class="ti-facebook"></i>
+              </a>
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ site.data.settings.url }}{{ page.url }}" class="share-btn linkedin-btn glass d-flex align-items-center justify-content-center" target="_blank" data-bs-toggle="tooltip" title="LinkedIn">
+                <i class="ti-linkedin"></i>
+              </a>
+              <button class="share-btn copy-link-btn glass d-flex align-items-center justify-content-center" id="copy-page-link" data-bs-toggle="tooltip" title="{% if lang == 'fr' %}Copier le lien{% else %}Copy link{% endif %}">
+                <i class="ti-link"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Back to Blog Button -->
+          <div data-aos="fade-up" data-aos-delay="400">
+            <a href="{{ site.baseurl }}/blog" class="btn btn-outline-primary w-100 font-monospace" style="border-radius: 30px; padding: 0.75rem 1.5rem; text-transform: none;">
+              <i class="ti-arrow-left me-2"></i>{{ t.labels.back_to_blog }}
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-{% if site.data.settings.disqus-identifier %} {% include disqus-comments.html %} {% endif %}
-
-<!-- blog -->
-<section class="section">
+<!-- similar stories -->
+<section class="section bg-dark border-top border-dark">
   <div class="container">
-    <div class="row">
+    <div class="row mb-5">
       <div class="col-12 text-center">
-        <h2 class="section-title">Similar Stories</h2>
+        <h2 class="section-title">{{ t.sections.similar_stories_title }}</h2>
       </div>
-      {% for post in site.posts offset:0 limit:3 %}
-      {% include post.html %}
+    </div>
+    <div class="row">
+      {% assign count = 0 %}
+      {% for post in site.posts %}
+        {% if post.url != page.url and count < 3 %}
+          {% include post.html %}
+          {% assign count = count | plus: 1 %}
+        {% endif %}
       {% endfor %}
     </div>
   </div>
 </section>
-<!-- /blog -->
+
+<!-- Back to top button -->
+<button id="back-to-top" class="back-to-top glass text-primary shadow-lg border border-dark rounded-circle d-flex align-items-center justify-content-center" style="display: none;" data-bs-toggle="tooltip" title="{% if lang == 'fr' %}Retour en haut{% else %}Back to top{% endif %}">
+  <i class="ti-arrow-up"></i>
+</button>

@@ -1,28 +1,33 @@
+{% assign lang = include.lang | default: page.lang | default: "en" %}
+{% assign t = include.t | default: site.data.translations[lang] %}
 {% if site.data.settings.experience %}
 <!-- experience -->
 <section class="section">
   <div class="container">
-    <div class="row justify-content-around">
-      <div class="col-lg-12 text-center">
-        <h2 class="section-title">{{ site.data.settings.experience-title }}</h2>
+    <div class="row mb-5">
+      <div class="col-12">
+        <h2 class="section-title">{{ t.sections.experience_title | default: site.data.settings.sections.experience_title }}</h2>
       </div>
-      {% for experience in site.data.settings.experience %}
-      <div class="col-lg-3 col-md-4 text-center ">
-        <img src="{{ site.baseurl }}/assets/images/experience/{{ experience.icon }}" alt="{{ site.data.settings.experience-title }} icon">
-        <div class="hover-wrapper">
-          <p class="mb-0">{{ experience.date }}</p>
-          <h4>{{ experience.name }}</h4>
-          <h6 class="text-light">{{ experience.organization }}</h6>
-        <div class="hover-overlay ">
-          <div class="hover-content">
-            <a class="btn btn-light btn-sm" href="{{ experience.url }}">view project</a>
+    </div>
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        <div class="timeline">
+          {% for experience in site.data.settings.experience %}
+          <div class="timeline-item glass p-4 mb-4 rounded-lg position-relative shadow-lg" style="border-left: 4px solid #6366f1 !important;">
+            <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap">
+              <h4 class="text-white mb-0">{{ experience.name }}</h4>
+              <span class="badge glass text-primary">{{ experience.date }}</span>
+            </div>
+            <h6 class="text-secondary font-weight-bold mb-3"><i class="ti-briefcase me-2"></i>{{ experience.organization }}</h6>
+            <div class="d-flex align-items-center">
+              {% if experience.url != "" %}
+              <a href="{{ experience.url }}" class="btn btn-xs btn-outline-primary mt-2">{{ t.labels.view_organization | default: site.data.settings.labels.view_organization }}</a>
+              {% endif %}
+            </div>
           </div>
+          {% endfor %}
         </div>
-        </div>
-        
-    
       </div>
-      {% endfor %}
     </div>
   </div>
 </section>

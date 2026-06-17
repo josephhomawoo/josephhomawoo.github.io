@@ -1,5 +1,6 @@
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://novenopatch.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://josephhomawoo.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
+future: true
 
 jekyll_admin:
   hidden_links:
@@ -10,11 +11,22 @@ jekyll_admin:
     - configuration
   homepage: "pages"
 
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /project/:path/
+
 # Build settings
 markdown: kramdown
 permalink: pretty
 plugins:
   - jekyll-sitemap
+  - jekyll-paginate
+
+paginate: 6
+paginate_path: "/blog/page:num/"
+
 compress_html:
   clippings: all
   comments: all
@@ -22,6 +34,11 @@ compress_html:
 
 # Pages Path
 defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      permalink: /blog/:title/
   - scope:
       path: "_pages"
     values:

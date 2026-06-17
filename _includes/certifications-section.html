@@ -1,0 +1,32 @@
+{% if site.data.settings.certifications %}
+<!-- certifications -->
+<section class="section">
+  <div class="container">
+    <div class="row align-items-center mb-5">
+      <div class="col-md-8">
+        <h2 class="section-title mb-0">{{ site.data.settings.sections.certifications_title }}</h2>
+      </div>
+      <div class="col-md-4 text-md-end mt-3 mt-md-0">
+        <a href="{{ site.data.settings.certifications_drive_url }}" target="_blank" class="text-primary font-weight-bold">
+          View All Certificates <i class="ti-new-window ms-2"></i>
+        </a>
+      </div>
+    </div>
+    <div class="row g-4">
+      {% for cert in site.data.settings.certifications %}
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="{{ forloop.index0 | times: 100 }}">
+        <div class="glass p-4 text-center rounded-lg h-100 glow-on-hover d-flex flex-column align-items-center justify-content-center">
+          <div class="mb-4">
+            <i class="{{ cert.icon }}" style="font-size: 4rem;"></i>
+          </div>
+          <h5 class="text-white mb-2">{{ cert.name }}</h5>
+          <p class="text-secondary small mb-0">{{ cert.issuer }}</p>
+          <span class="badge glass text-primary mt-3">{{ cert.date }}</span>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<!-- /certifications -->
+{% endif %}

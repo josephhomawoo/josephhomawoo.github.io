@@ -1,0 +1,31 @@
+// One Dark syntax highlighting for Rouge (Pygments classes)
+// Matches our sleek developer theme
+
+.highlight {
+  background-color: #0f141c !important; // Deeper slate/black for code blocks
+  color: #abb2bf;
+
+  .c, .cm, .c1, .cs, .cd { color: #5c6370; font-style: italic; } // Comments
+  
+  .k, .kd, .kn, .kp, .kr, .kt, .ow { color: #c678dd; font-weight: 600; } // Keywords (e.g. function, class, public)
+  
+  .s, .sa, .sb, .sc, .dl, .sd, .s2, .se, .sh, .si, .sx, .s1, .ss { color: #98c379; } // Strings
+  
+  .m, .mb, .mx, .mo, .mi, .mf, .mh, .il { color: #d19a66; } // Numbers
+  
+  .nf, .fm { color: #61afef; } // Functions
+  
+  .nc, .nn { color: #e5c07b; } // Classes, Namespaces
+  
+  .nv, .vg, .vi, .vc { color: #e06c75; } // Variables
+  
+  .na { color: #d19a66; } // Attributes (e.g. name, type, id)
+  
+  .nt { color: #e06c75; font-weight: 600; } // Tags (e.g. div, h1)
+  
+  .nb, .bp { color: #56b6c2; } // Builtins
+  
+  .o, .p { color: #56b6c2; } // Operators, Punctuation (e.g. ->, =>, $, {}, [])
+  
+  .err { color: #be5046; background-color: rgba(#be5046, 0.1); } // Errors
+}

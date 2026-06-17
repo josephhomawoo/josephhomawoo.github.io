@@ -1,3 +1,5 @@
+@use "../variables" as *;
+
 /* skills */
 .progress-wrapper {
   height: 130px;
@@ -189,6 +191,22 @@
 /* footer */
 .footer-section {
   padding-top: 200px;
+  background: transparent;
+  border-top: 1px solid $border-color-light;
+  
+  .border-top {
+    border-color: $border-color-light !important;
+  }
+}
+
+[data-bs-theme="dark"] {
+  .footer-section {
+    border-top: 1px solid $border-color-dark;
+    
+    .border-top {
+      border-color: $border-color-dark !important;
+    }
+  }
 }
 
 .section-on-footer {

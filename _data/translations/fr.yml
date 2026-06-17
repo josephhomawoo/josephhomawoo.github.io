@@ -1,0 +1,40 @@
+labels:
+  home: "Accueil"
+  about: "À Propos"
+  blog: "Blog"
+  portfolio: "Portfolio"
+  contact: "Contact"
+  cv: "CV"
+  read_more: "LIRE LA SUITE"
+  back_to_blog: "Retour au bLog"
+  share: "PARTAGER_NOEUD"
+  min_read: "MIN DE LECTURE"
+  all_systems: "TOUS LES SYSTÈMES"
+  view_organization: "Voir l'Organisation"
+  view_portfolio_ledger: "Voir le Portfolio"
+  lead_architect: "Architecte Principal"
+  lead_consultant: "Consultant Backend Principal"
+  view_project: "VOIR LE PROJET"
+  proficiency: "Maîtrise"
+
+sections:
+  blog_title: "Perspectives Techniques"
+  blog_subtitle: "EXPLORATION DE L'ARCHITECTURE SYSTÈME ET DE L'EXCELLENCE BACKEND"
+  similar_stories_title: "Articles Similaires"
+  comments_title: "Commentaires"
+  clients_title: "Partenariats Stratégiques"
+  about_title: "Maîtriser la Complexité"
+  skills_title: "Stack Technique"
+  experience_title: "Parcours Professionnel"
+  education_title: "Formation Académique"
+  services_title: "Expertise Technique"
+  portfolio_title: "Solutions d'Entreprise"
+  case_studies_title: "Études de Cas"
+  testimonials_title: "Retours Clients"
+
+about:
+  blurb: "Je code et conçois des choses magnifiquement simples, et j'aime ce que je fais."
+  btn_name: "en savoir plus"
+
+hero:
+  title: "ROI DU BACKEND <br> Architecte Système <br> & Stratège UX"

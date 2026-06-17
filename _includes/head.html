@@ -1,11 +1,28 @@
 <head>
   <meta charset="utf-8">
-  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.data.settings.title }}{% endif %}</title>
+  <title>{% if page.title %}{{ page.title }} | {{ site.data.settings.title }}{% else %}{{ site.data.settings.title }}{% endif %}</title>
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="{%if page.description%}{{page.description}}{%else%}{{site.data.settings.description}}{%endif%}">
+  <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.data.settings.description }}{% endif %}">
   
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site.data.settings.url }}{{ page.url }}">
+  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.data.settings.title }}{% endif %}">
+  <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.data.settings.description }}{% endif %}">
+  <meta property="og:image" content="{{ site.data.settings.url }}/{{ site.data.settings.social_image }}">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="{{ site.data.settings.url }}{{ page.url }}">
+  <meta property="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.data.settings.title }}{% endif %}">
+  <meta property="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.data.settings.description }}{% endif %}">
+  <meta property="twitter:image" content="{{ site.data.settings.url }}/{{ site.data.settings.social_image }}">
+  {% if site.data.settings.twitter_username %}
+  <meta name="twitter:creator" content="{{ site.data.settings.twitter_username }}">
+  {% endif %}
+
   <!-- theme meta -->
   <meta name="theme-name" content="kross-jekyll" />
 
@@ -21,6 +38,11 @@
 
   <!-- Main Stylesheet -->
   <link href="{{ '/assets/scss/style.css' | relative_url }}" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <!--Favicon-->
   <link rel="shortcut icon" href="{{ '/assets/images/favicon.png' | relative_url }} " type="image/x-icon">

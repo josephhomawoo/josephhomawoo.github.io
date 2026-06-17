@@ -1,0 +1,25 @@
+<div class="dock-wrapper">
+  <div class="dock glass">
+    <a href="{{ site.baseurl }}/" class="dock-item {% if page.url == '/' or page.url == '/index.html' %}active{% endif %}" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ t.labels.home }}">
+      <i class="ti-home"></i>
+    </a>
+
+    {% for link in site.data.settings.menu %}
+      {% assign icon = "ti-link" %}
+      {% if link.name == "About" %}{% assign icon = "ti-user" %}{% endif %}
+      {% if link.name == "Portfolio" %}{% assign icon = "ti-briefcase" %}{% endif %}
+      {% if link.name == "Blog" %}{% assign icon = "ti-pencil-alt" %}{% endif %}
+      {% if link.name == "Contact" %}{% assign icon = "ti-email" %}{% endif %}
+      {% if link.name == "CV" %}{% assign icon = "ti-id-badge" %}{% endif %}
+
+      <a href="{{ link.link | relative_url }}" class="dock-item {% if page.url contains link.link %}active{% endif %}" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ t.labels[link.name | downcase] | default: link.name }}">
+        <i class="{{ icon }}"></i>
+      </a>
+    {% endfor %}
+
+    <div class="dock-divider"></div>
+    <button class="dock-item border-0 bg-transparent" id="dock-dark-mode-toggle" data-bs-toggle="tooltip" data-bs-placement="top" title="Toggle Theme">
+      <i class="ti-shine"></i>
+    </button>
+  </div>
+</div>

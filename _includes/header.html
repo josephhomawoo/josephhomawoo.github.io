@@ -1,27 +1,50 @@
+{% assign t = include.t %}
+{% assign lang = include.lang %}
 <header class="navigation fixed-top">
   <nav class="navbar navbar-expand-lg navbar-dark">
-    <a class="navbar-brand font-tertiary h3" href="{{ site.baseurl }}/">
+    <a class="navbar-brand font-tertiary h3 mb-0" href="{{ site.baseurl }}/">
       {% if site.data.settings.logo %}
         <img src="{{ site.data.settings.logo | absolute_url }}" alt="{{ site.data.settings.title }}">
         {% else if %}
-        <h3 class="text-white font-tertiary">{{site.data.settings.title}}</h3>
+        <h3 class="navbar-brand-text font-tertiary mb-0">{{site.data.settings.title}}</h3>
       {% endif %}
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+    <button class="navbar-toggler border-0 text-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navigation"
       aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse text-center" id="navigation">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="{{ site.baseurl }}/">Home</a>
+      <ul class="navbar-nav ms-auto align-items-center">
+        <li class="nav-item">
+          <a class="nav-link {% if page.url == '/' or page.url == '/index.html' %}active{% endif %}" href="{{ site.baseurl }}/">{{ t.labels.home }}</a>
         </li>
         {% for link in site.data.settings.menu %}
-          <li class="nav-item {{ class }}">
-            <a class="nav-link" href="{{ link.link }}">{{ link.name }}</a>
+          {% assign active = false %}
+          {% if page.url contains link.link %}
+            {% assign active = true %}
+          {% endif %}
+          <li class="nav-item {% if active %}active{% endif %}">
+            <a class="nav-link" href="{{ link.link | relative_url }}">{{ t.labels[link.name | downcase] | default: link.name }}</a>
           </li>
         {% endfor %}
+        
+        <!-- Language Switcher -->
+        <li class="nav-item dropdown ms-lg-3">
+          <a class="nav-link dropdown-toggle font-monospace small" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {{ lang | upcase }}
+          </a>
+          <ul class="dropdown-menu dropdown-menu-light glass border-0 shadow" aria-labelledby="languageDropdown">
+            <li><a class="dropdown-item small {% if lang == 'en' %}active{% endif %}" href="{{ site.baseurl }}/">EN - ENGLISH</a></li>
+            <li><a class="dropdown-item small {% if lang == 'fr' %}active{% endif %}" href="{{ site.baseurl }}/fr/">FR - FRANÇAIS</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item ms-lg-3">
+          <button class="btn btn-sm btn-theme-toggle border-0" id="dark-mode-toggle" aria-label="Toggle dark mode">
+            <i class="ti-shine" id="dark-mode-icon"></i>
+          </button>
+        </li>
       </ul>
     </div>
   </nav>
