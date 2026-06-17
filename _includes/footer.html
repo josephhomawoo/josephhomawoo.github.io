@@ -1,4 +1,3 @@
-<!-- footer -->
 <footer class="footer-section position-relative">
   <div class="section pb-4">
     <div class="container">
@@ -24,13 +23,14 @@
     </div>
   </div>
 </footer>
-<!-- /footer -->
 
 
-<!-- JS Plugins -->
 {% for js in site.data.plugins.js %}
-<script src="{{ js | relative_url }}"></script>
+  {% if js.url %}
+    <script src="{{ js.url | relative_url }}"{% if js.integrity %} integrity="{{ js.integrity }}"{% endif %}{% if js.crossorigin %} crossorigin="{{ js.crossorigin }}"{% endif %}></script>
+  {% else %}
+    <script src="{{ js | relative_url }}"></script>
+  {% endif %}
 {% endfor %}
 
-<!-- Main Script -->
 <script src="{{ '/assets/js/script.js' | relative_url }}"></script>
