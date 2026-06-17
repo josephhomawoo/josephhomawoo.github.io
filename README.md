@@ -1,4 +1,4 @@
-# 🚀 Portfolio - 
+# 🚀 Portfolio - Joseph HOMAWOO
 
 Bienvenue sur le dépôt de mon portfolio personnel. Ce site présente mes projets, mes compétences en développement (Back-end, Mobile, Web) et mon expérience en tant que Designer UX/UI.
 
@@ -29,7 +29,28 @@ Ce portfolio est construit avec des technologies statiques pour garantir perform
 
 ---
 
+## 💻 Installation Locale
 
+Pour exécuter ce projet sur votre machine, assurez-vous d'avoir [Ruby](https://www.ruby-lang.org/) et [Bundler](https://bundler.io/) installés.
+
+1.  **Cloner le dépôt :**
+    ```bash
+    git clone https://github.com/josephhomawoo/josephhomawoo.github.io.git
+    cd josephhomawoo.github.io
+    ```
+
+2.  **Installer les dépendances :**
+    ```bash
+    bundle install
+    ```
+
+3.  **Lancer le serveur de développement :**
+    ```bash
+    bundle exec jekyll serve
+    ```
+    Accédez ensuite à `http://localhost:4000` dans votre navigateur.
+
+---
 
 ## 📂 Structure du Projet
 
