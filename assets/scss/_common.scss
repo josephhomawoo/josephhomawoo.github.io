@@ -36,6 +36,14 @@ body {
   }
 }
 
+.glass {
+  background: rgba(255, 255, 255, 0.5) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(0, 0, 0, 0.05) !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04) !important;
+}
+
 [data-bs-theme="dark"] {
   body {
     background-color: $body-bg-dark !important;
