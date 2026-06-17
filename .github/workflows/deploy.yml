@@ -11,7 +11,7 @@ jobs:
     outputs:
       target: ${{ steps.set-output.outputs.target }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: get deployment target
         run: |
@@ -26,7 +26,7 @@ jobs:
       # some reason smh. here we use outputs instead
       - name: set output to deploy target
         id: set-output
-        run: echo "::set-output name=target::${{ env.TARGET }}"
+        run: echo "target=${{ env.TARGET }}" >> $GITHUB_OUTPUT
 
   # not sure if anyone wants this but I'm putting this here for those that don't
   # want to host their site. else the actions will show an annoying x whenever
@@ -44,7 +44,7 @@ jobs:
     if: needs.set-deploy-type.outputs.target == 'gh-pages'
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     - name: Deploy Jekyll Site
       uses: sujaykundu777/jekyll-deploy-action@1.0.3
@@ -59,11 +59,12 @@ jobs:
     if: needs.set-deploy-type.outputs.target == 'firebase'
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     - name: setup ruby
       uses: ruby/setup-ruby@v1
       with:
+        ruby-version: '3.3'
         bundler-cache: true
 
     - name: build jekyll
