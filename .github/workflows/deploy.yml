@@ -66,6 +66,7 @@ jobs:
       with:
         ruby-version: '3.3'
         bundler-cache: true
+        cache-version: 1
 
     - name: build jekyll
       run: |
