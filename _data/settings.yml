@@ -162,8 +162,8 @@ twitter_username: "@Jerrykel_j"
 
 menu:
   - { name: About, link: "/about" }
-  - { name: Blog, link: "/blog" }
   - { name: Portfolio, link: "/portfolio" }
+  - { name: Blog, link: "/blog" }
   - { name: Contact, link: "/contact" }
   - { name: CV, link: "/cv" }
 
@@ -247,7 +247,6 @@ skills:
   - { name: React , color: "#fcccaa", value: "50%", icon: "devicon-react-original colored" }
   - { name: Git & Docker , color: "#ffccaa", value: "80%", icon: "devicon-docker-plain colored" }
   - { name : Firebase and Aws, color: "#f473e6", value: "60%", icon: "devicon-firebase-plain colored" }
-  - { name: Adobe Xd, color: "#bdecf6", value: "70%", icon: "devicon-xd-plain colored" }
 
 #-------------------------------
 # Exprerience Section
