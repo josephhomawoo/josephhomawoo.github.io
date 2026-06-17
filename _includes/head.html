@@ -80,7 +80,11 @@
   
   <!-- ** Plugins Needed for the Project ** -->
   {% for css in site.data.plugins.css %}
-  <link rel="stylesheet" href="{{ css | relative_url }}">
+    {% if css.url %}
+      <link rel="stylesheet" href="{{ css.url | relative_url }}"{% if css.integrity %} integrity="{{ css.integrity }}"{% endif %}{% if css.crossorigin %} crossorigin="{{ css.crossorigin }}"{% endif %}>
+    {% else %}
+      <link rel="stylesheet" href="{{ css | relative_url }}">
+    {% endif %}
   {% endfor %}
 
   <!-- Main Stylesheet -->

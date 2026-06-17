@@ -57,9 +57,9 @@ layout: default
             <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
               <div class="share-links d-flex align-items-center gap-3">
                 <span class="text-white small font-monospace">{% if lang == 'fr' %}Partager:{% else %}Share:{% endif %}</span>
-                <a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.data.settings.url }}{{ page.url }}" class="glass p-2 rounded-circle text-primary" target="_blank" data-bs-toggle="tooltip" title="Twitter"><i class="ti-twitter"></i></a>
-                <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.data.settings.url }}{{ page.url }}" class="glass p-2 rounded-circle text-primary" target="_blank" data-bs-toggle="tooltip" title="Facebook"><i class="ti-facebook"></i></a>
-                <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ site.data.settings.url }}{{ page.url }}" class="glass p-2 rounded-circle text-primary" target="_blank" data-bs-toggle="tooltip" title="LinkedIn"><i class="ti-linkedin"></i></a>
+                <a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.data.settings.url }}{{ page.url }}" class="glass p-2 rounded-circle text-primary" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" title="Twitter"><i class="ti-twitter"></i></a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.data.settings.url }}{{ page.url }}" class="glass p-2 rounded-circle text-primary" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" title="Facebook"><i class="ti-facebook"></i></a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ site.data.settings.url }}{{ page.url }}" class="glass p-2 rounded-circle text-primary" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" title="LinkedIn"><i class="ti-linkedin"></i></a>
               </div>
               
               <div class="tags">
@@ -131,13 +131,13 @@ layout: default
               {% if lang == 'fr' %}Partager l'article{% else %}Share article{% endif %}
             </h5>
             <div class="d-flex align-items-center gap-2">
-              <a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.data.settings.url }}{{ page.url }}" class="share-btn twitter-btn glass d-flex align-items-center justify-content-center" target="_blank" data-bs-toggle="tooltip" title="Twitter">
+              <a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.data.settings.url }}{{ page.url }}" class="share-btn twitter-btn glass d-flex align-items-center justify-content-center" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" title="Twitter">
                 <i class="ti-twitter"></i>
               </a>
-              <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.data.settings.url }}{{ page.url }}" class="share-btn facebook-btn glass d-flex align-items-center justify-content-center" target="_blank" data-bs-toggle="tooltip" title="Facebook">
+              <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.data.settings.url }}{{ page.url }}" class="share-btn facebook-btn glass d-flex align-items-center justify-content-center" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" title="Facebook">
                 <i class="ti-facebook"></i>
               </a>
-              <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ site.data.settings.url }}{{ page.url }}" class="share-btn linkedin-btn glass d-flex align-items-center justify-content-center" target="_blank" data-bs-toggle="tooltip" title="LinkedIn">
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ site.data.settings.url }}{{ page.url }}" class="share-btn linkedin-btn glass d-flex align-items-center justify-content-center" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" title="LinkedIn">
                 <i class="ti-linkedin"></i>
               </a>
               <button class="share-btn copy-link-btn glass d-flex align-items-center justify-content-center" id="copy-page-link" data-bs-toggle="tooltip" title="{% if lang == 'fr' %}Copier le lien{% else %}Copy link{% endif %}">
