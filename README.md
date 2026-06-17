@@ -1,4 +1,4 @@
-# 🚀 Portfolio - Joseph HOMAWOO
+# 🚀 Portfolio - 
 
 Bienvenue sur le dépôt de mon portfolio personnel. Ce site présente mes projets, mes compétences en développement (Back-end, Mobile, Web) et mon expérience en tant que Designer UX/UI.
 
@@ -29,28 +29,7 @@ Ce portfolio est construit avec des technologies statiques pour garantir perform
 
 ---
 
-## 💻 Installation Locale
 
-Pour exécuter ce projet sur votre machine, assurez-vous d'avoir [Ruby](https://www.ruby-lang.org/) et [Bundler](https://bundler.io/) installés.
-
-1.  **Cloner le dépôt :**
-    ```bash
-    git clone https://github.com/novenopatch/novenopatch.github.io.git
-    cd novenopatch.github.io
-    ```
-
-2.  **Installer les dépendances :**
-    ```bash
-    bundle install
-    ```
-
-3.  **Lancer le serveur de développement :**
-    ```bash
-    bundle exec jekyll serve
-    ```
-    Accédez ensuite à `http://localhost:4000` dans votre navigateur.
-
----
 
 ## 📂 Structure du Projet
 
@@ -62,11 +41,11 @@ Pour exécuter ce projet sur votre machine, assurez-vous d'avoir [Ruby](https://
 
 ---
 
-## 📄 Licence
+## 📄 Licence & Propriété (License & Ownership)
 
-Ce projet est basé sur le template **Kross Jekyll**.
-- Code : Sous licence **MIT**.
-- Contenu & Images : Propriété de Joseph HOMAWOO (sauf mentions contraires).
+- **Tous droits réservés / All Rights Reserved** : Le code source de ce dépôt, son design, son texte, ses images et l'ensemble de ses données personnelles sont la propriété exclusive de **Joseph HOMAWOO**.
+- Aucune autorisation de reproduction, de copie ou de réutilisation n'est accordée.
+- *The source code, layout, design, text, images, and other assets in this repository are the exclusive property of **Joseph HOMAWOO**. No part of this project may be reproduced, copied, or reused in any form without prior written permission.*
 
 ---
 *Fait avec ❤️ par Joseph HOMAWOO*
