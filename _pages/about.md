@@ -2,7 +2,7 @@
 layout: about
 title: About Me
 author: Joseph Homawoo
-image: assets/images/about/author.webp
+image: assets/images/about/author_0.webp
 signature: assets/images/about/signature.webp
 wakatime_username : ""
 ---
