@@ -195,7 +195,7 @@ hero:
     skills_prefix: "Skills"
 
 social:
-  - { icon: "ti-facebook", link: "https://web.facebook.com/fernando.vilarios" }
+  - { icon: "ti-linkedin", link: "https://www.linkedin.com/in/joseph-homawoo" }
   - { icon: "ti-instagram", link: "https://www.instagram.com/_jerrykel/" }
   - { icon: "ti-twitter", link: "https://twitter.com/Jerrykel_j" }
   - { icon: "ti-github", link: "https://github.com/novenopatch/" }
@@ -329,19 +329,24 @@ services:
 
 # Portfolio Home Section
 portfolio-home-items:
-  - image: "assets/images/portfolio/signals.webp"
+  - name: "Signal Clone App"
+    image: "assets/images/portfolio/signals.webp"
     url: "https://github.com/novenopatch/Signal-Apps"
 
-  - image: "assets/images/portfolio/safe.webp"
+  - name: "Secure Password Vault"
+    image: "assets/images/portfolio/safe.webp"
     url: "https://github.com/novenopatch/MyPasswordManager"
 
-  - image: "assets/images/portfolio/snake.webp"
+  - name: "Retro Snake Game"
+    image: "assets/images/portfolio/snake.webp"
     url: "https://github.com/novenopatch/pygame-test"
 
-  - image: "assets/images/portfolio/space.webp"
+  - name: "Space Shooter Game"
+    image: "assets/images/portfolio/space.webp"
     url: "https://github.com/novenopatch/pygame-test"
 
-  - image: "assets/images/portfolio/superquiz.webp"
+  - name: "Super Quiz Game"
+    image: "assets/images/portfolio/superquiz.webp"
     url: "https://github.com/novenopatch/quizquiz"
 
 # Portfolio Page
@@ -354,13 +359,15 @@ portfolio-label:
   - { title: "ILLUSTRATION", type: "illustration" }
 
 portfolio-items:
-  - image: "assets/images/portfolio/signals.webp"
+  - name: "Signal Clone App"
+    image: "assets/images/portfolio/signals.webp"
     url: "https://github.com/novenopatch/Signal-Apps"
     portfolio-type:
       - type: "Mobile developement"
       - type: "design"
 
-  - image: "assets/images/portfolio/safe.webp"
+  - name: "Secure Password Vault"
+    image: "assets/images/portfolio/safe.webp"
     url: "https://github.com/novenopatch/MyPasswordManager"
     project_path: "/project/safe-vault/"
     sector: "FINTECH / SECURITY"
@@ -368,40 +375,47 @@ portfolio-items:
       - type: "Mobile developement"
       - type: "design"
 
-  - image: "assets/images/portfolio/snake.webp"
+  - name: "Retro Snake Game"
+    image: "assets/images/portfolio/snake.webp"
     url: "https://github.com/novenopatch/pygame-test"
     portfolio-type:
       - type: "Game developement"
 
-  - image: "assets/images/portfolio/space.webp"
+  - name: "Space Shooter Game"
+    image: "assets/images/portfolio/space.webp"
     url: "https://github.com/novenopatch/pygame-test"
     portfolio-type:
       - type: "Game developement"
 
-  - image: "assets/images/portfolio/superquiz.webp"
+  - name: "Super Quiz Game"
+    image: "assets/images/portfolio/superquiz.webp"
     url: "https://github.com/novenopatch/quizquiz"
     portfolio-type:
       - type: "Mobile developement"
       - type: "Game developement"
       - type: "design"
 
-  - image: "assets/images/portfolio/java-c.webp"
+  - name: "Temperature Converter"
+    image: "assets/images/portfolio/java-c.webp"
     url: "https://github.com/novenopatch/convertisseurTemp"
     portfolio-type:
       - type: "Desktop developement"
       - type: "design"
-  - image: "assets/images/portfolio/javafx.webp"
+  - name: "JavaFX Password Manager"
+    image: "assets/images/portfolio/javafx.webp"
     url: "https://github.com/novenopatch/safepasswordfx"
     portfolio-type:
       - type: "Desktop developement"
       - type: "design"
       - type: "illustration"
-  - image: "assets/images/portfolio/item-1.webp"
+  - name: "Corporate Brand Identity"
+    image: "assets/images/portfolio/item-1.webp"
     url: "#"
     portfolio-type:
       - type: "branding"
 
-  - image: "assets/images/portfolio/item-3.webp"
+  - name: "UX/UI Design System"
+    image: "assets/images/portfolio/item-3.webp"
     url: "#"
     portfolio-type:
       - type: "design"
@@ -414,10 +428,10 @@ portfolio-items:
 # Testimonials Section
 
 testimonial-items:
-  - name: "Jesica Gomez"
+  - name: "Jean-Pierre Dupont"
     image: "assets/images/testimonial/client-1.webp"
-    designation: "CEO, Funder"
-    content: "<strong>quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</strong> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+    designation: "Directeur Technique, SANAM-Group"
+    content: "Joseph a fait preuve d'un grand professionnalisme dans le développement de nos applications mobiles et de nos architectures backend. Sa rigueur technique et ses compétences en UX sont des atouts précieux pour la réussite de tout projet."
 
 
 #-------------------------------

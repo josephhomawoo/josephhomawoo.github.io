@@ -1,10 +1,12 @@
+{% assign lang = include.lang | default: page.lang | default: "en" %}
+{% assign t = include.t | default: site.data.translations[lang] %}
 {% if site.data.settings.skills %}
 <!-- skills -->
 <section class="section">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
-        <h2 class="section-title">{{ site.data.settings.sections.skills_title }}</h2>
+        <h2 class="section-title">{{ t.sections.skills_title | default: site.data.settings.sections.skills_title }}</h2>
       </div>
     </div>
     <div class="bento-grid">
@@ -13,7 +15,7 @@
            data-aos="zoom-in" data-aos-delay="{{ forloop.index0 | times: 50 }}">
         <i class="{{ skill.icon | default: 'ti-layers-alt text-primary' }} mb-3" style="font-size: 2.5rem;"></i>
         <h4 class="card-title mb-0">{{ skill.name }}</h4>
-        <small class="text-secondary mt-2">{{ skill.value }}% {{ site.data.settings.labels.proficiency_label }}</small>
+        <small class="text-secondary mt-2">{{ skill.value }}% {{ t.labels.proficiency | default: site.data.settings.labels.proficiency_label }}</small>
       </div>
       {% endfor %}
     </div>

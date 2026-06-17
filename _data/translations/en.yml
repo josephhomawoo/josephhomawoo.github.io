@@ -10,6 +10,12 @@ labels:
   share: "SHARE_NODE"
   min_read: "MIN READ"
   all_systems: "ALL SYSTEMS"
+  view_organization: "View Organization"
+  view_portfolio_ledger: "View Portfolio Ledger"
+  lead_architect: "Lead Architect"
+  lead_consultant: "Lead Backend Consultant"
+  view_project: "VIEW PROJECT"
+  proficiency: "Proficiency"
 
 sections:
   blog_title: "Technical Insights"
@@ -18,6 +24,13 @@ sections:
   comments_title: "Comments"
   clients_title: "Strategic Partnerships"
   about_title: "Mastering Complexity"
+  skills_title: "Technical Stack"
+  experience_title: "Professional Roadmap"
+  education_title: "Academic Background"
+  services_title: "Technical Expertise"
+  portfolio_title: "Enterprise Solutions"
+  case_studies_title: "Enterprise Case Studies"
+  testimonials_title: "Client Feedback"
 
 about:
   blurb: "I code and design beautifully simple things, and I love what I do."

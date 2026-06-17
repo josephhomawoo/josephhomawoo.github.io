@@ -1,10 +1,12 @@
+{% assign lang = include.lang | default: page.lang | default: "en" %}
+{% assign t = include.t | default: site.data.translations[lang] %}
 {% if site.data.settings.services %}
 <!-- services -->
 <section class="section">
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
-        <h2 class="section-title">{{ site.data.settings.sections.services_title }}</h2>
+        <h2 class="section-title">{{ t.sections.services_title | default: site.data.settings.sections.services_title }}</h2>
       </div>
       {% for service in site.data.settings.services %}
       <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="{{ forloop.index0 | times: 100 }}">

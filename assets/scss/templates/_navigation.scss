@@ -7,10 +7,10 @@
   background: transparent;
 
   &.nav-bg {
-    background: rgba(9, 9, 11, 0.7);
+    background: rgba(248, 250, 252, 0.85);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid $border-color-light;
     padding: 10px 100px;
     @include desktop {
       padding: 10px 20px;
@@ -18,14 +18,10 @@
   }
   @include desktop {
     padding: 15px 20px;
-    background: rgba(9, 9, 11, 0.7);
+    background: rgba(248, 250, 252, 0.85);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
   }
-}
-
-[data-bs-theme="dark"] .navigation.nav-bg {
-  background: rgba(9, 9, 11, 0.85);
 }
 
 .navbar{
@@ -36,23 +32,56 @@
       text-transform: none;
       letter-spacing: $tracking-tight;
       padding: 8px 16px;
-      color: rgba(255, 255, 255, 0.7) !important;
+      color: $text-color-light !important;
       transition: .2s ease;
       border-radius: 8px;
       
       &:hover {
-        color: $white !important;
-        background: rgba(255, 255, 255, 0.05);
+        color: $heading-color-light !important;
+        background: rgba(15, 23, 42, 0.04);
       }
     }
     &.active .nav-link {
-      color: $white !important;
-      background: rgba(255, 255, 255, 0.1);
+      color: $heading-color-light !important;
+      background: rgba(15, 23, 42, 0.08);
       font-weight: 600;
     }
   }
 }
 
 .navbar-dark .navbar-nav .nav-link{
-  color: $white;
+  color: $text-color-light;
+}
+
+[data-bs-theme="dark"] {
+  .navigation {
+    &.nav-bg {
+      background: rgba(3, 7, 18, 0.85);
+      border-bottom: 1px solid $border-color-dark;
+    }
+    @include desktop {
+      background: rgba(3, 7, 18, 0.85);
+    }
+  }
+  
+  .navbar {
+    .nav-item {
+      .nav-link {
+        color: $text-color-dark-mode !important;
+        
+        &:hover {
+          color: $white !important;
+          background: rgba(255, 255, 255, 0.05);
+        }
+      }
+      &.active .nav-link {
+        color: $white !important;
+        background: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+  
+  .navbar-dark .navbar-nav .nav-link {
+    color: $text-color-dark-mode;
+  }
 }

@@ -2,7 +2,7 @@
 
 Bienvenue sur le dépôt de mon portfolio personnel. Ce site présente mes projets, mes compétences en développement (Back-end, Mobile, Web) et mon expérience en tant que Designer UX/UI.
 
-🔗 **Lien du site :** [https://novenopatch.github.io/](https://novenopatch.github.io/)
+🔗 **Lien du site :** [https://josephhomawoo.github.io/](https://josephhomawoo.github.io/)
 
 ---
 

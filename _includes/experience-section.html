@@ -1,10 +1,12 @@
+{% assign lang = include.lang | default: page.lang | default: "en" %}
+{% assign t = include.t | default: site.data.translations[lang] %}
 {% if site.data.settings.experience %}
 <!-- experience -->
 <section class="section">
   <div class="container">
     <div class="row mb-5">
       <div class="col-12">
-        <h2 class="section-title">{{ site.data.settings.sections.experience_title }}</h2>
+        <h2 class="section-title">{{ t.sections.experience_title | default: site.data.settings.sections.experience_title }}</h2>
       </div>
     </div>
     <div class="row">
@@ -19,7 +21,7 @@
             <h6 class="text-secondary font-weight-bold mb-3"><i class="ti-briefcase me-2"></i>{{ experience.organization }}</h6>
             <div class="d-flex align-items-center">
               {% if experience.url != "" %}
-              <a href="{{ experience.url }}" class="btn btn-xs btn-outline-primary mt-2">{{ site.data.settings.labels.view_organization }}</a>
+              <a href="{{ experience.url }}" class="btn btn-xs btn-outline-primary mt-2">{{ t.labels.view_organization | default: site.data.settings.labels.view_organization }}</a>
               {% endif %}
             </div>
           </div>

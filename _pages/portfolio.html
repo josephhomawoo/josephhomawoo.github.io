@@ -2,12 +2,14 @@
 layout: page
 title: Portfolio
 ---
+{% assign lang = page.lang | default: "en" %}
+{% assign t = site.data.translations[lang] %}
 <!-- portfolio -->
 <section class="section">
   <div class="container">
     <div class="row mb-5">
       <div class="col-lg-8 mx-auto text-center">
-        <h2 class="section-title mb-3" data-aos="fade-up">{{ site.data.settings.portfolio_page.title }}</h2>
+        <h2 class="section-title mb-3" data-aos="fade-up">{{ t.sections.portfolio_title | default: site.data.settings.portfolio_page.title }}</h2>
         <p class="text-color-dark mb-5" data-aos="fade-up" data-aos-delay="100">{{ site.data.settings.portfolio_page.description }}</p>
         
         <div class="glass p-5 rounded-lg text-start mb-5" style="border-left: 4px solid $primary-color !important;" data-aos="fade-up" data-aos-delay="200">
@@ -26,7 +28,7 @@ title: Portfolio
         
         <div class="filter-container" data-aos="fade-up" data-aos-delay="300">
           <label class="btn-filter active">
-            <input type="radio" name="shuffle-filter" value="all" checked="checked" /> {{ site.data.settings.labels.view_all | upcase }}
+            <input type="radio" name="shuffle-filter" value="all" checked="checked" /> {{ t.labels.all_systems | default: site.data.settings.labels.view_all | upcase }}
           </label>
           {% for label in site.data.settings.portfolio-label %}
           <label class="btn-filter">
@@ -50,7 +52,7 @@ title: Portfolio
           </div>
           
           <div class="card-body p-4">
-            <span class="consultant-role mb-2 d-block">{{ site.data.settings.labels.lead_consultant }}</span>
+            <span class="consultant-role mb-2 d-block">{{ t.labels.lead_consultant | default: site.data.settings.labels.lead_consultant }}</span>
             <h4 class="text-white mb-3">{{ item.name | default: 'Infrastructure Solution' }}</h4>
             <p class="small text-color-dark mb-4" style="line-height: 1.6;">{{ item.description | default: site.data.settings.labels.portfolio_default_description }}</p>
             
@@ -65,7 +67,7 @@ title: Portfolio
               {% if item.project_path %}
               <a href="{{ item.project_path | relative_url }}" class="text-primary font-weight-bold small">INSPECT CASE STUDY <i class="ti-search ms-1"></i></a>
               {% else %}
-              <a href="{{ item.url }}" class="text-primary font-weight-bold small">{{ site.data.settings.labels.view_project }} <i class="ti-arrow-right ms-1"></i></a>
+              <a href="{{ item.url }}" class="text-primary font-weight-bold small">{{ t.labels.view_project | default: site.data.settings.labels.view_project }} <i class="ti-arrow-right ms-1"></i></a>
               {% endif %}
             </div>
           </div>

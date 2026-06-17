@@ -1,10 +1,12 @@
+{% assign lang = include.lang | default: page.lang | default: "en" %}
+{% assign t = include.t | default: site.data.translations[lang] %}
 {% if site.data.settings.testimonial-items %}
 <!-- testimonial -->
 <section class="section bg-primary position-relative testimonial-bg-shapes">
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
-        <h2 class="section-title text-white mb-5">{{ site.data.settings.sections.testimonials_title }}</h2>
+        <h2 class="section-title text-white mb-5">{{ t.sections.testimonials_title | default: site.data.settings.sections.testimonials_title }}</h2>
       </div>
       <div class="col-lg-10 mx-auto testimonial-slider">
         {% for testimonial-item in site.data.settings.testimonial-items %}
