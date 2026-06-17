@@ -35,8 +35,8 @@ Pour exécuter ce projet sur votre machine, assurez-vous d'avoir [Ruby](https://
 
 1.  **Cloner le dépôt :**
     ```bash
-    git clone https://github.com/novenopatch/novenopatch.github.io.git
-    cd novenopatch.github.io
+    git clone https://github.com/josephhomawoo/josephhomawoo.github.io.git
+    cd josephhomawoo.github.io
     ```
 
 2.  **Installer les dépendances :**
@@ -62,11 +62,11 @@ Pour exécuter ce projet sur votre machine, assurez-vous d'avoir [Ruby](https://
 
 ---
 
-## 📄 Licence
+## 📄 Licence & Propriété (License & Ownership)
 
-Ce projet est basé sur le template **Kross Jekyll**.
-- Code : Sous licence **MIT**.
-- Contenu & Images : Propriété de Joseph HOMAWOO (sauf mentions contraires).
+- **Tous droits réservés / All Rights Reserved** : Le code source de ce dépôt, son design, son texte, ses images et l'ensemble de ses données personnelles sont la propriété exclusive de **Joseph HOMAWOO**.
+- Aucune autorisation de reproduction, de copie ou de réutilisation n'est accordée.
+- *The source code, layout, design, text, images, and other assets in this repository are the exclusive property of **Joseph HOMAWOO**. No part of this project may be reproduced, copied, or reused in any form without prior written permission.*
 
 ---
 *Fait avec ❤️ par Joseph HOMAWOO*

@@ -1,6 +1,7 @@
 ---
 layout: about
 title: About Me
+description: "Learn more about Joseph HOMAWOO, a self-taught and disciplined developer passionate about system architecture, backend engineering, and technical problem-solving."
 author: Joseph Homawoo
 image: assets/images/about/author_0.webp
 signature: assets/images/about/signature.webp

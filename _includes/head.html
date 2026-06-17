@@ -1,32 +1,79 @@
 <head>
   <meta charset="utf-8">
-  <title>{% if page.title %}{{ page.title }} | {{ site.data.settings.title }}{% else %}{{ site.data.settings.title }}{% endif %}</title>
+  <title>{% if page.title %}{{ page.title }} | Joseph HOMAWOO{% else %}{{ site.data.settings.title }}{% endif %}</title>
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.data.settings.description }}{% endif %}">
   
+  <!-- Canonical URL -->
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+
   <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="{{ site.data.settings.url }}{{ page.url }}">
-  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.data.settings.title }}{% endif %}">
+  <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:title" content="{% if page.title %}{{ page.title }} | Joseph HOMAWOO{% else %}{{ site.data.settings.title }}{% endif %}">
   <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.data.settings.description }}{% endif %}">
-  <meta property="og:image" content="{{ site.data.settings.url }}/{{ site.data.settings.social_image }}">
+  <meta property="og:image" content="{% if page.image %}{{ page.image | absolute_url }}{% else %}{{ site.data.settings.social_image | absolute_url }}{% endif %}">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="{{ site.data.settings.url }}{{ page.url }}">
-  <meta property="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.data.settings.title }}{% endif %}">
+  <meta property="twitter:url" content="{{ page.url | absolute_url }}">
+  <meta property="twitter:title" content="{% if page.title %}{{ page.title }} | Joseph HOMAWOO{% else %}{{ site.data.settings.title }}{% endif %}">
   <meta property="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.data.settings.description }}{% endif %}">
-  <meta property="twitter:image" content="{{ site.data.settings.url }}/{{ site.data.settings.social_image }}">
+  <meta property="twitter:image" content="{% if page.image %}{{ page.image | absolute_url }}{% else %}{{ site.data.settings.social_image | absolute_url }}{% endif %}">
   {% if site.data.settings.twitter_username %}
   <meta name="twitter:creator" content="{{ site.data.settings.twitter_username }}">
   {% endif %}
 
-  <!-- theme meta -->
-  <meta name="theme-name" content="kross-jekyll" />
+  <!-- JSON-LD Structured Data -->
+  {% if page.url == '/' or page.url == '/index.html' %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Joseph HOMAWOO",
+    "url": "{{ '/' | absolute_url }}",
+    "sameAs": [
+      "https://www.linkedin.com/in/joseph-homawoo",
+      "https://github.com/novenopatch",
+      "https://twitter.com/Jerrykel_j"
+    ],
+    "jobTitle": "Senior Backend Architect & UX Strategist",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Freelance"
+    },
+    "description": "{{ site.data.settings.description }}"
+  }
+  </script>
+  {% elsif page.layout == 'post' %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "{{ page.title | escape }}",
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    "dateModified": "{% if page.last_modified_at %}{{ page.last_modified_at | date_to_xmlschema }}{% else %}{{ page.date | date_to_xmlschema }}{% endif %}",
+    "author": {
+      "@type": "Person",
+      "name": "{{ page.author | default: 'Joseph HOMAWOO' }}"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Joseph HOMAWOO",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ '/assets/images/favicon.png' | absolute_url }}"
+      }
+    },
+    "description": "{{ page.description | default: page.excerpt | strip_html | strip_newlines | truncate: 160 | escape }}",
+    "image": "{{ page.image | absolute_url }}"
+  }
+  </script>
+  {% endif %}
 
-    
+  
   {% if site.author %}
   <meta name="author" content="{{ site.author }}">
   {% endif %}
