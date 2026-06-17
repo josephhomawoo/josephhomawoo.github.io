@@ -1,6 +1,11 @@
 ---
 layout: default
 ---
+<!-- Scroll Progress Indicator -->
+<div class="scroll-progress-container">
+  <div class="scroll-progress-bar" id="scroll-progress"></div>
+</div>
+
 <!-- immersive page title -->
 <section class="page-title-alt position-relative" style="padding: 150px 0 80px; overflow: hidden;">
   <div class="container">
@@ -16,7 +21,7 @@ layout: default
             {% endfor %}
           </div>
         </div>
-        <h1 class="text-white font-tertiary mb-4" style="font-size: 3.5rem; line-height: 1.1;" data-aos="fade-up" data-aos-delay="100">{{ page.title | escape }}</h1>
+        <h1 class="text-white font-tertiary mb-4" style="font-size: 3.25rem; line-height: 1.15;" data-aos="fade-up" data-aos-delay="100">{{ page.title | escape }}</h1>
         <div class="d-flex justify-content-center align-items-center gap-4 text-secondary font-monospace" data-aos="fade-up" data-aos-delay="200">
           <span><i class="ti-calendar me-2"></i>{{ page.date | date: '%B %d, %Y' }}</span>
           <span><i class="ti-user me-2"></i>{{ page.author | default: site.data.settings.author }}</span>
@@ -28,22 +33,19 @@ layout: default
   </div>
   
   <!-- background shapes -->
-  <div class="bg-shapes">
-    <img src="{{ site.baseurl }}/assets/images/illustrations/dots-group-cyan.webp" alt="bg-shape" class="img-fluid bg-shape-1">
-    <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-pink-round.webp" alt="bg-shape" class="img-fluid bg-shape-2">
-    <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-cyan-lg.webp" alt="bg-shape" class="img-fluid bg-shape-3">
-  </div>
+
 </section>
 
 <!-- post content -->
 <section class="section pt-0">
   <div class="container">
     <div class="row">
-      <div class="col-lg-10 mx-auto">
+      <!-- Main Content Column -->
+      <div class="col-lg-8 col-md-12 mb-5 mb-lg-0">
         <div class="glass p-4 p-md-5 rounded-lg shadow-lg" data-aos="fade-up">
           {% if page.image %}
           <div class="mb-5 rounded-lg overflow-hidden shadow-lg border border-dark">
-            <img src="{{ page.image | relative_url }}" class="img-fluid w-100" alt="{{ page.title }}" style="max-height: 600px; object-fit: cover;">
+            <img src="{{ page.image | relative_url }}" class="img-fluid w-100" alt="{{ page.title }}" style="max-height: 500px; object-fit: cover;">
           </div>
           {% endif %}
           
@@ -51,13 +53,13 @@ layout: default
             {{ content }}
           </div>
           
-          <div class="mt-5 pt-5 border-top border-dark">
+          <div class="mt-5 pt-4 border-top border-dark">
             <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
               <div class="share-links d-flex align-items-center gap-3">
-                <span class="text-white small font-monospace">{{ t.labels.share }}:</span>
-                <a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.data.settings.url }}{{ page.url }}" class="glass p-2 rounded-circle text-primary" target="_blank"><i class="ti-twitter"></i></a>
-                <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.data.settings.url }}{{ page.url }}" class="glass p-2 rounded-circle text-primary" target="_blank"><i class="ti-facebook"></i></a>
-                <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ site.data.settings.url }}{{ page.url }}" class="glass p-2 rounded-circle text-primary" target="_blank"><i class="ti-linkedin"></i></a>
+                <span class="text-white small font-monospace">{% if lang == 'fr' %}Partager:{% else %}Share:{% endif %}</span>
+                <a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.data.settings.url }}{{ page.url }}" class="glass p-2 rounded-circle text-primary" target="_blank" data-bs-toggle="tooltip" title="Twitter"><i class="ti-twitter"></i></a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.data.settings.url }}{{ page.url }}" class="glass p-2 rounded-circle text-primary" target="_blank" data-bs-toggle="tooltip" title="Facebook"><i class="ti-facebook"></i></a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ site.data.settings.url }}{{ page.url }}" class="glass p-2 rounded-circle text-primary" target="_blank" data-bs-toggle="tooltip" title="LinkedIn"><i class="ti-linkedin"></i></a>
               </div>
               
               <div class="tags">
@@ -77,6 +79,80 @@ layout: default
           </div>
         </div>
         {% endif %}
+      </div>
+
+      <!-- Sticky Sidebar Column -->
+      <div class="col-lg-4 col-md-12">
+        <div class="sticky-sidebar-wrapper">
+          <!-- Author Info Card -->
+          <div class="glass p-4 rounded-lg mb-4 shadow-sm" data-aos="fade-up" data-aos-delay="100">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              {% if site.data.settings.social_image %}
+              <div class="position-relative">
+                <img src="{{ site.data.settings.social_image | relative_url }}" alt="{{ site.data.settings.author }}" class="rounded-circle border border-primary shadow-sm" style="width: 48px; height: 48px; object-fit: cover;">
+              </div>
+              {% else %}
+              <div class="author-avatar-pulse">
+                <i class="ti-user text-primary fs-3"></i>
+              </div>
+              {% endif %}
+              <div>
+                <h5 class="text-white mb-0 font-monospace" style="font-size: 1.05rem;">{{ page.author | default: site.data.settings.author }}</h5>
+                <span class="text-secondary small font-monospace">{% if lang == 'fr' %}Architecte Principal{% else %}Lead Consultant{% endif %}</span>
+              </div>
+            </div>
+            <p class="small text-secondary mb-0" style="line-height: 1.5;">
+              {% if lang == 'fr' %}
+                Architecte système spécialisé dans les infrastructures à haute disponibilité et le développement d'applications d'entreprise.
+              {% else %}
+                System Architect specializing in high-availability backend systems and scalable enterprise application designs.
+              {% endif %}
+            </p>
+          </div>
+
+          <!-- Dynamic Table of Contents Card -->
+          <div class="glass p-4 rounded-lg mb-4 shadow-sm toc-card" data-aos="fade-up" data-aos-delay="200">
+            <h5 class="text-white mb-3 font-monospace pb-2 border-bottom border-dark d-flex align-items-center gap-2" style="font-size: 1.1rem;">
+              <i class="ti-list text-primary"></i>
+              {% if lang == 'fr' %}Sur cette page{% else %}On this page{% endif %}
+            </h5>
+            <div class="toc-container">
+              <nav id="toc">
+                <ul class="toc-list list-unstyled ps-0 small mb-0">
+                  <!-- Generated dynamically via JS -->
+                </ul>
+              </nav>
+            </div>
+          </div>
+
+          <!-- Share Actions Card -->
+          <div class="glass p-4 rounded-lg mb-4 shadow-sm" data-aos="fade-up" data-aos-delay="300">
+            <h5 class="text-white mb-3 font-monospace pb-2 border-bottom border-dark" style="font-size: 1.1rem;">
+              {% if lang == 'fr' %}Partager l'article{% else %}Share article{% endif %}
+            </h5>
+            <div class="d-flex align-items-center gap-2">
+              <a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.data.settings.url }}{{ page.url }}" class="share-btn twitter-btn glass d-flex align-items-center justify-content-center" target="_blank" data-bs-toggle="tooltip" title="Twitter">
+                <i class="ti-twitter"></i>
+              </a>
+              <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.data.settings.url }}{{ page.url }}" class="share-btn facebook-btn glass d-flex align-items-center justify-content-center" target="_blank" data-bs-toggle="tooltip" title="Facebook">
+                <i class="ti-facebook"></i>
+              </a>
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ site.data.settings.url }}{{ page.url }}" class="share-btn linkedin-btn glass d-flex align-items-center justify-content-center" target="_blank" data-bs-toggle="tooltip" title="LinkedIn">
+                <i class="ti-linkedin"></i>
+              </a>
+              <button class="share-btn copy-link-btn glass d-flex align-items-center justify-content-center" id="copy-page-link" data-bs-toggle="tooltip" title="{% if lang == 'fr' %}Copier le lien{% else %}Copy link{% endif %}">
+                <i class="ti-link"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Back to Blog Button -->
+          <div data-aos="fade-up" data-aos-delay="400">
+            <a href="{{ site.baseurl }}/blog" class="btn btn-outline-primary w-100 font-monospace" style="border-radius: 30px; padding: 0.75rem 1.5rem; text-transform: none;">
+              <i class="ti-arrow-left me-2"></i>{{ t.labels.back_to_blog }}
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -101,3 +177,8 @@ layout: default
     </div>
   </div>
 </section>
+
+<!-- Back to top button -->
+<button id="back-to-top" class="back-to-top glass text-primary shadow-lg border border-dark rounded-circle d-flex align-items-center justify-content-center" style="display: none;" data-bs-toggle="tooltip" title="{% if lang == 'fr' %}Retour en haut{% else %}Back to top{% endif %}">
+  <i class="ti-arrow-up"></i>
+</button>

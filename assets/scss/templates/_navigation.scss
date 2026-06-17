@@ -8,9 +8,9 @@
 
   &.nav-bg {
     background: rgba(248, 250, 252, 0.85);
+    border-bottom: 1px solid $border-color-light;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid $border-color-light;
     padding: 10px 100px;
     @include desktop {
       padding: 10px 20px;
@@ -19,8 +19,19 @@
   @include desktop {
     padding: 15px 20px;
     background: rgba(248, 250, 252, 0.85);
+    border-bottom: 1px solid $border-color-light;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
+  }
+}
+
+// Brand Title Link Styling
+.navbar-brand-text {
+  color: $heading-color-light !important;
+  transition: color 0.2s ease;
+  
+  &:hover {
+    color: $primary-color !important;
   }
 }
 
@@ -53,6 +64,53 @@
   color: $text-color-light;
 }
 
+// Theme Toggle Button Styling (Header specific)
+.btn-theme-toggle {
+  color: $text-color-light !important;
+  background: transparent !important;
+  font-size: 1.1rem;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  &:hover {
+    color: $heading-color-light !important;
+    background: rgba(15, 23, 42, 0.04) !important;
+  }
+}
+
+// Dropdown Menu & Language Switcher styling (semantic glass)
+.dropdown-menu.glass {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border: 1px solid $border-color-light !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  
+  .dropdown-item {
+    color: $text-color-light !important;
+    font-family: $primary-font;
+    transition: all 0.2s ease;
+    padding: 6px 16px;
+    border-radius: 6px;
+    margin: 2px 4px;
+    
+    &:hover, &:focus {
+      background: rgba(15, 23, 42, 0.04) !important;
+      color: $heading-color-light !important;
+    }
+    
+    &.active {
+      background: rgba($primary-color, 0.08) !important;
+      color: $primary-color !important;
+      font-weight: 600;
+    }
+  }
+}
+
+/* Dark Mode Overrides for Navigation */
 [data-bs-theme="dark"] {
   .navigation {
     &.nav-bg {
@@ -61,6 +119,15 @@
     }
     @include desktop {
       background: rgba(3, 7, 18, 0.85);
+      border-bottom: 1px solid $border-color-dark;
+    }
+  }
+  
+  .navbar-brand-text {
+    color: $heading-color-dark !important;
+    
+    &:hover {
+      color: $secondary-color !important;
     }
   }
   
@@ -83,5 +150,33 @@
   
   .navbar-dark .navbar-nav .nav-link {
     color: $text-color-dark-mode;
+  }
+  
+  .btn-theme-toggle {
+    color: $text-color-dark-mode !important;
+    
+    &:hover {
+      color: $white !important;
+      background: rgba(255, 255, 255, 0.05) !important;
+    }
+  }
+
+  .dropdown-menu.glass {
+    background: rgba(17, 24, 39, 0.85) !important;
+    border: 1px solid $border-color-dark !important;
+    
+    .dropdown-item {
+      color: $text-color-dark-mode !important;
+      
+      &:hover, &:focus {
+        background: rgba(255, 255, 255, 0.05) !important;
+        color: $white !important;
+      }
+      
+      &.active {
+        background: rgba($secondary-color, 0.15) !important;
+        color: $secondary-color !important;
+      }
+    }
   }
 }

@@ -35,3 +35,7 @@ VERSION:	Versoin Number
 @use 'templates/portfolio';
 
 @use 'templates/dock';
+
+@use 'syntax';
+
+@use 'templates/blog_details';
