@@ -2,34 +2,35 @@
 {% assign t = include.t | default: site.data.translations[lang] %}
 {% if site.data.settings.testimonial-items %}
 <!-- testimonial -->
-<section class="section bg-primary position-relative testimonial-bg-shapes">
+<section class="section position-relative overflow-hidden">
   <div class="container">
     <div class="row">
-      <div class="col-12 text-center">
-        <h2 class="section-title text-white mb-5">{{ t.sections.testimonials_title | default: site.data.settings.sections.testimonials_title }}</h2>
+      <div class="col-12 text-center mb-5" data-aos="fade-up">
+        <h2 class="section-title">{{ t.sections.testimonials_title | default: site.data.settings.sections.testimonials_title }}</h2>
       </div>
-      <div class="col-lg-10 mx-auto testimonial-slider">
+      <div class="col-lg-8 mx-auto testimonial-slider" data-aos="fade-up" data-aos-delay="200">
         {% for testimonial-item in site.data.settings.testimonial-items %}
         <!-- slider-item -->
-        <div class="text-center testimonial-content">
-          <i class="ti-quote-right text-white icon mb-4 d-inline-block"></i>
-          <p class="text-white mb-4">{{ testimonial-item.content }}</p>
-          <img class="img-fluid rounded-circle mb-4 d-inline-block" src="{{ testimonial-item.image | relative_url }}"
-            alt="{{ testimonial-item.name }}">
-          <h4 class="text-white">{{ testimonial-item.name }}</h4>
-          <h6 class="text-light mb-4">{{ testimonial-item.designation }}</h6>
+        <div class="px-3 py-4">
+          <div class="glass p-5 rounded-lg text-center shadow-lg position-relative glow-on-hover" style="border-top: 4px solid #6366f1 !important;">
+            <div class="testimonial-content">
+              <i class="ti-quote-right text-primary mb-4 d-inline-block" style="font-size: 2.5rem; opacity: 0.8;"></i>
+              <p class="mb-4 font-secondary paragraph-lg text-color-dark italic" style="font-size: 1.15rem; line-height: 1.8;">
+                "{{ testimonial-item.content }}"
+              </p>
+              <div class="mt-4">
+                <img class="img-fluid rounded-circle mb-3 shadow-sm border border-secondary" src="{{ testimonial-item.image | relative_url }}"
+                  alt="{{ testimonial-item.name }}" style="width: 75px; height: 75px; object-fit: cover; border-width: 2px !important;">
+                <h4 class="text-white mb-1 font-weight-bold">{{ testimonial-item.name }}</h4>
+                <small class="text-light uppercase" style="letter-spacing: 1px;">{{ testimonial-item.designation }}</small>
+              </div>
+            </div>
+          </div>
         </div>
         {% endfor %}
       </div>
     </div>
   </div>
-  <!-- bg shapes -->
-  <img src="{{ site.baseurl }}/assets/images/backgrounds/map.webp" alt="map" class="img-fluid bg-map">
-  <img src="{{ site.baseurl }}/assets/images/illustrations/dots-group-v.webp" alt="bg-shape" class="img-fluid bg-shape-1">
-  <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-orange.webp" alt="bg-shape" class="img-fluid bg-shape-2">
-  <img src="{{ site.baseurl }}/assets/images/illustrations/dots-group-sm.webp" alt="bg-shape" class="img-fluid bg-shape-3">
-  <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-pink-round.webp" alt="bg-shape" class="img-fluid bg-shape-4">
-  <img src="{{ site.baseurl }}/assets/images/illustrations/leaf-cyan.webp" alt="bg-shape" class="img-fluid bg-shape-5">
 </section>
 <!-- /testimonial -->
 {% endif %}

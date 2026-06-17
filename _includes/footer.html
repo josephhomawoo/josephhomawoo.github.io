@@ -1,25 +1,27 @@
 <!-- footer -->
-<footer class="bg-dark footer-section">
-  <div class="section">
+<footer class="footer-section position-relative">
+  <div class="section pb-4">
     <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <h5 class="text-light">{{ site.data.settings.labels.email_label }}</h5>
-          <p class="text-white paragraph-lg font-secondary">{{ site.data.settings.email }}</p>
+      <div class="row g-4">
+        <div class="col-md-4 text-center text-md-start">
+          <h5 class="text-primary uppercase tracking-wider mb-3" style="font-size: 0.9rem; font-weight: 600; letter-spacing: 1px;">{{ site.data.settings.labels.email_label }}</h5>
+          <p class="paragraph-lg font-secondary text-color-dark mb-0">{{ site.data.settings.email }}</p>
         </div>
-        <div class="col-md-4">
-          <h5 class="text-light">{{ site.data.settings.labels.phone_label }}</h5>
-          <p class="text-white paragraph-lg font-secondary">{{ site.data.settings.phone }}</p>
+        <div class="col-md-4 text-center text-md-start">
+          <h5 class="text-primary uppercase tracking-wider mb-3" style="font-size: 0.9rem; font-weight: 600; letter-spacing: 1px;">{{ site.data.settings.labels.phone_label }}</h5>
+          <p class="paragraph-lg font-secondary text-color-dark mb-0">{{ site.data.settings.phone }}</p>
         </div>
-        <div class="col-md-4">
-          <h5 class="text-light">{{ site.data.settings.labels.address_label }}</h5>
-          <p class="text-white paragraph-lg font-secondary">{{ site.data.settings.address }}</p>
+        <div class="col-md-4 text-center text-md-start">
+          <h5 class="text-primary uppercase tracking-wider mb-3" style="font-size: 0.9rem; font-weight: 600; letter-spacing: 1px;">{{ site.data.settings.labels.address_label }}</h5>
+          <p class="paragraph-lg font-secondary text-color-dark mb-0">{{ site.data.settings.address }}</p>
         </div>
       </div>
     </div>
   </div>
-  <div class="border-top text-center border-dark py-5">
-    <p class="mb-0 text-light">{{site.data.settings.copyright | markdownify}}</p>
+  <div class="border-top text-center py-4">
+    <div class="container">
+      <p class="mb-0 text-secondary small">{{site.data.settings.copyright | markdownify | strip_html}}</p>
+    </div>
   </div>
 </footer>
 <!-- /footer -->

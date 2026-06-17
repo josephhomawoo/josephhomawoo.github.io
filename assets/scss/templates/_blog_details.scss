@@ -493,8 +493,8 @@
     }
   }
 
-  // Override text-white inside sections that are NOT dark
-  section:not(.bg-dark):not(.footer-section) {
+  // Override text-white inside sections that are NOT dark/indigo
+  section:not(.bg-dark):not(.bg-primary) {
     h1.text-white, h2.text-white, h3.text-white, h4.text-white, h5.text-white, h6.text-white {
       color: $heading-color-light !important;
     }
@@ -503,17 +503,50 @@
     }
   }
   
-  // Ensure that dark backgrounds inside light theme retain white headings
-  .bg-dark, .footer-section {
+  // Ensure that dark backgrounds inside light theme retain white headings and soft text
+  .bg-dark, .bg-primary {
     .section-title, h1, h2, h3, h4, h5, h6 {
       color: $heading-color-dark !important;
     }
     p, span, div, a:not(.btn) {
       color: $text-color-dark-mode !important;
     }
+    .text-light {
+      color: $text-color-dark-mode !important;
+    }
+    .text-white {
+      color: $heading-color-dark !important;
+    }
     .border-dark {
       border-color: rgba(255, 255, 255, 0.08) !important;
     }
+  }
+
+  // Form controls in light theme
+  .form-control {
+    color: $text-color-light !important;
+    border-bottom: 1px solid $border-color-light !important;
+    
+    &::placeholder {
+      color: rgba(15, 23, 42, 0.4) !important;
+    }
+  }
+
+  // Badges inside dark overlays should retain their white text in light theme
+  .project-overlay, .project-img {
+    .glass {
+      h1.text-white, h2.text-white, h3.text-white, h4.text-white, h5.text-white, h6.text-white {
+        color: $white !important;
+      }
+      p.text-white, span.text-white, div.text-white {
+        color: $white !important;
+      }
+    }
+  }
+
+  // Slick slider dots in light theme
+  .slick-dots li button {
+    background: rgba(15, 23, 42, 0.15) !important;
   }
 }
 
@@ -543,5 +576,28 @@
         color: $secondary-color !important;
       }
     }
+    .border-dark {
+      border-color: rgba(255, 255, 255, 0.08) !important;
+    }
+  }
+
+  // Ensure text-light is highly readable in dark mode (not slate 700)
+  .text-light {
+    color: $text-color-dark-mode !important;
+  }
+
+  // Form controls in dark theme
+  .form-control {
+    color: $heading-color-dark !important;
+    border-bottom: 1px solid $border-color-dark !important;
+    
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.4) !important;
+    }
+  }
+
+  // Slick slider dots in dark theme
+  .slick-dots li button {
+    background: rgba(255, 255, 255, 0.2) !important;
   }
 }
