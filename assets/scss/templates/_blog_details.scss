@@ -440,7 +440,7 @@
    ========================================================================== */
 
 // Light theme global overrides for elements that have hardcoded .text-white but are on a light background
-[data-bs-theme="light"], body:not([data-bs-theme="dark"]) {
+[data-bs-theme="light"], html:not([data-bs-theme="dark"]) {
   
   // Make sure headings globally default to dark in light theme
   h1, h2, h3, h4, h5, h6 {
