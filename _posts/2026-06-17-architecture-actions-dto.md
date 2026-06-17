@@ -3,7 +3,7 @@ layout: post
 title: "Pourquoi j'ai arrêté de tout mettre dans des Services (et ce qui les a remplacés)"
 date: 2026-06-17 10:00:00 +0000
 author: Joseph HOMAWOO
-image: assets/images/blog/post-1.webp
+image: assets/images/blog/architecture-action-dto.jpg
 tags: [Backend, Laravel, Symfony, Architecture]
 description: "Découvrez pourquoi le passage de gros Services monolithiques aux patrons Actions et DTOs rend votre base de code plus lisible, testable et réutilisable."
 ---
@@ -23,6 +23,7 @@ Trois rôles vont revenir tout le long de l'article :
 - Le **DTO** transporte des données typées entre les couches, un peu comme un contrat.
 
 Rien d'exotique là-dedans.
+
 
 ## Le problème, ce n'est pas le Service. C'est ce qu'il devient
 
