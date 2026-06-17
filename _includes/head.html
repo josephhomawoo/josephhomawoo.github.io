@@ -1,21 +1,4 @@
 <head>
-  <!-- Google Consent Mode V2 Initialization -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-
-    var consentChoice = localStorage.getItem('cookie-consent-choice');
-    var consentState = consentChoice === 'accepted' ? 'granted' : 'denied';
-
-    gtag('consent', 'default', {
-      'analytics_storage': consentState,
-      'ad_storage': consentState,
-      'ad_user_data': consentState,
-      'ad_personalization': consentState,
-      'wait_for_update': 500
-    });
-  </script>
-
   <meta charset="utf-8">
   <title>{% if page.title %}{{ page.title }} | Joseph HOMAWOO{% else %}{{ site.data.settings.title }}{% endif %}</title>
   <meta name="google-site-verification" content="p3h5Euq7g7_GEn3r9xA1BLlZoJtcs_0LJM4wp0i5r18" />
