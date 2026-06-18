@@ -43,7 +43,7 @@ layout: default
         <div class="glass p-4 p-md-5 rounded-lg shadow-lg" data-aos="fade-up">
           {% if page.image %}
           <div class="mb-5 rounded-lg overflow-hidden shadow-lg border border-dark">
-            <img src="{{ page.image | relative_url }}" class="img-fluid w-100" alt="{{ page.title }}" style="max-height: 500px; object-fit: cover;">
+            <img src="{{ page.image | relative_url }}" class="img-fluid w-100" alt="{{ page.image_alt | default: page.title | escape }}" style="max-height: 500px; object-fit: cover;">
           </div>
           {% endif %}
           
