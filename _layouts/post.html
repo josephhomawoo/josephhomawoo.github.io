@@ -180,3 +180,39 @@ layout: default
 <button id="back-to-top" class="back-to-top glass text-primary shadow-lg border border-dark rounded-circle d-flex align-items-center justify-content-center" style="display: none;" data-bs-toggle="tooltip" title="{% if lang == 'fr' %}Retour en haut{% else %}Back to top{% endif %}">
   <i class="ti-arrow-up"></i>
 </button>
+
+<!-- Mermaid.js integration for rendering diagrams dynamically -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var codeBlocks = document.querySelectorAll("pre code.language-mermaid, .language-mermaid pre, .language-mermaid code");
+    
+    codeBlocks.forEach(function(block) {
+      var preEl = block.tagName === 'PRE' ? block : block.closest('pre');
+      if (!preEl) return;
+      
+      var diagramText = block.textContent;
+      var mermaidDiv = document.createElement('div');
+      mermaidDiv.className = 'mermaid';
+      mermaidDiv.textContent = diagramText;
+      
+      mermaidDiv.style.display = 'flex';
+      mermaidDiv.style.justifyContent = 'center';
+      mermaidDiv.style.margin = '2rem 0';
+      mermaidDiv.style.color = '#fff';
+      
+      preEl.parentNode.replaceChild(mermaidDiv, preEl);
+    });
+
+    import('https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs')
+      .then(function(m) {
+        m.default.initialize({
+          startOnLoad: true,
+          theme: 'dark',
+          securityLevel: 'strict'
+        });
+      })
+      .catch(function(err) {
+        console.error("Error loading Mermaid: ", err);
+      });
+  });
+</script>
